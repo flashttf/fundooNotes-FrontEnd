@@ -1,29 +1,22 @@
 <div fxLayout="column" fxLayoutAlign="center center" fxFlex="100">
 
     <mat-card class="login" fxLayout="column" fxLayoutAlign="center center">
-
-
-
-        <mat-card-title fxLayoutAlign="center start">
+    <mat-card-title fxLayoutAlign="center start">
             <div>
                 <h1>Fundoo Notes</h1>
             </div>
         </mat-card-title>
-
-
-
         <mat-card-subtitle>
             <div fxLayoutAlign="center">
                 <h2>Sign in</h2>
             </div>
         </mat-card-subtitle>
-
-
-
         <div >
             <mat-form-field  appearance="outline">
                 <mat-label>Email</mat-label>
-                <input matInput placeholder="example. abc@xyz.com">
+                <mat-error *ngIf="email.invalid">{{getErrorMessage()}}</mat-error>
+                <input type="email" matInput placeholder="example. abc@xyz.com" [formControl]="email" 
+                [(ngModel)]="login.email" required>
                 <mat-icon matSuffix><img src="../../assets/baseline-mail-24px.svg"></mat-icon>
 
             </mat-form-field>
@@ -31,8 +24,10 @@
         <div>
             <mat-form-field appearance="outline">
                 <mat-label>Password</mat-label>
-                <input matInput placeholder="">
-                <mat-icon matSuffix>visibility</mat-icon>
+                <mat-error *ngIf="password.invalid">{{getErrorMessagePassword()}}</mat-error>
+                <input type="password" matInput placeholder="" [type]="hide?'text':'password'"
+                [formControl]="password" [(ngModel)]="login.password" required>
+                <mat-icon matSuffix (click)="hide=!hide">{{hide?'visibility_off':'visibility'}}</mat-icon>
 
             </mat-form-field>
         </div>

@@ -22,13 +22,17 @@ import { LoginComponent } from './components/login/login.component';
  import {RegisterComponent} from './components/register/register.component';
 import { HttpClientModule } from '@angular/common/http';
 
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { ForgotpasswordComponent } from './components/forgotpassword/forgotpassword.component';
+
 
 
 @NgModule({
   declarations: [
     AppComponent,
     LoginComponent,
-    RegisterComponent  
+    RegisterComponent,
+    ForgotpasswordComponent  
     
      
 
@@ -45,8 +49,10 @@ import { HttpClientModule } from '@angular/common/http';
     FlexLayoutModule,
     BrowserAnimationsModule,
     MatSnackBarModule,
-    HttpClientModule
-
+    HttpClientModule,
+    FormsModule,
+    ReactiveFormsModule,
+    
   ],
   providers: [],
   bootstrap: [AppComponent]
