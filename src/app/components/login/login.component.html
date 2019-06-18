@@ -1,4 +1,4 @@
-<div fxLayout="column" fxLayoutAlign="center center" fxFlex="100">
+<div class="outer-div" fxLayout="column" fxLayoutAlign="center center" fxFlex="100">
 
     <mat-card class="login" fxLayout="column" fxLayoutAlign="center center">
     <mat-card-title fxLayoutAlign="center start">
@@ -38,13 +38,13 @@
             <button mat-raised-button  (click)="onLogin()">Login</button>
         </div>
         <div>
-            <button mat-raised-button  >Register</button>
+            <button mat-raised-button  (click)="onRegister()">Register</button>
         </div>
     </div>
         
     </div>
     <div>
-        <button mat-raised-button >Forgot Password</button>
+        <button mat-raised-button (click)="onForgotPassword()">Forgot Password</button>
     </div>
 </div>
 

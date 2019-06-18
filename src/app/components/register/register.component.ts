@@ -2,8 +2,9 @@ import { Component, OnInit } from '@angular/core';
 import { Register } from 'src/app/model/register';
 import { FormControl, Validators, FormBuilder } from '@angular/forms';
 import { MatSnackBar } from '@angular/material';
+
+import {  Router } from '@angular/router';
 import { HttpServiceService } from 'src/services/http-service.service';
-import { ActivatedRoute,Router } from '@angular/router';
 
 @Component({
   selector: 'app-register',
@@ -24,7 +25,7 @@ export class RegisterComponent implements OnInit {
   constructor(private snackBar:MatSnackBar,
     private httpservice:HttpServiceService,
     public FormBuilder:FormBuilder,
-    private route:ActivatedRoute,
+    
     private router:Router
     ) { }
 
@@ -45,13 +46,16 @@ export class RegisterComponent implements OnInit {
         console.log("Ok");
         this.httpservice.postRequest("register",this.register).subscribe(
           (response:any)=>{
-            if(response.statuscode===200){
+            console.log("in register=====>",response);
+            
+            if(response.statusCode==200){
               console.log("Registered");
               
               console.log(response);
-              this.snackBar.open("Registered Succesfully","undo",{duration:2500});
-              this.router.navigate(['/login'])
-            } else{
+              this.snackBar.open("Registered Succesfully.Please Verify your email.","undo",{duration:2500});
+              this.router.navigate(['/login']);
+            } 
+            else{
               console.log(response);
               this.snackBar.open("Registeration Failed","undo",{duration:2500});
               console.log("Failed",response);
@@ -63,9 +67,6 @@ export class RegisterComponent implements OnInit {
           
           this.snackBar.open("Enter Matching Password","undo",{duration:2500});
           
-        }
-     
+    }
   } 
-
-
 }

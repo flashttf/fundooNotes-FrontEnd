@@ -3,7 +3,7 @@ import { Login } from '../../model/login';
 import { MatSnackBar } from '@angular/material';
 import { HttpServiceService } from '../../../services/http-service.service';
 import { FormControl, Validators,FormBuilder } from '@angular/forms';
-import {ActivatedRoute} from '@angular/router'
+import {ActivatedRoute,Router} from '@angular/router'
 
 
 @Component({
@@ -24,7 +24,7 @@ export class LoginComponent implements OnInit {
       private httpservice: HttpServiceService,
       public FormBuilder:FormBuilder,
       private route:ActivatedRoute,
-      // private router:Router
+      private router:Router
      
      ) { }
 
@@ -50,13 +50,18 @@ getErrorMessagePassword(){
     this.token = localStorage.getItem('token');
     this.httpservice.postRequest("login", this.login).subscribe(
       (response: any) => {
-        if (response.statusCode === 200) {
+        if(response.statusCode===202){
+          this.snackBar.open(response.statusMessage,"close",{duration:3000});
+        }else if(response.statusCode===203){
+          this.snackBar.open(response.statusMessage,"close",{duration:3000});
+        }
+       else if (response.statusCode === 200) {
           console.log(response);
           localStorage.setItem('token', response.token);
           localStorage.setItem('email', this.login.email);
           localStorage.setItem('userName' , response.userName);
           this.snackBar.open(response.statusMessage, "close", { duration: 2500 })
-        //  this.router.navigate(['/dashboard']);
+         this.router.navigate(['/dashboard']);
           
         } else {
           console.log(response);
@@ -64,6 +69,14 @@ getErrorMessagePassword(){
         }
       }
     )
+  }
+
+  onRegister(){
+    this.router.navigate(['/register']);
+  }
+
+  onForgotPassword(){
+    this.router.navigate(['/forgotpassword']);
   }
 
 }

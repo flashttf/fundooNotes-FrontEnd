@@ -24,6 +24,8 @@ import { HttpClientModule } from '@angular/common/http';
 
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { ForgotpasswordComponent } from './components/forgotpassword/forgotpassword.component';
+import { DashboardComponent } from './components/dashboard/dashboard.component';
+import { ResetpasswordComponent } from './components/resetpassword/resetpassword.component';
 
 
 
@@ -32,7 +34,9 @@ import { ForgotpasswordComponent } from './components/forgotpassword/forgotpassw
     AppComponent,
     LoginComponent,
     RegisterComponent,
-    ForgotpasswordComponent  
+    ForgotpasswordComponent,
+    DashboardComponent,
+    ResetpasswordComponent  
     
      
 
