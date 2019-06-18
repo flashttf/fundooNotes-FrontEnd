@@ -50,7 +50,7 @@ export class ForgotpasswordComponent implements OnInit {
           // console.log(response);
           
           this.snackBar.open(response.statusMessage,"close",{duration:2500})
-          this.router.navigate(['/resetpassword']);
+          
         }else{
           // console.log("ForgotPass Failed");
           

@@ -29,7 +29,7 @@ const routes: Routes = [
     component:DashboardComponent
   },
   {
-    path:"resetpassword",
+    path:"resetpassword/:token",
     component:ResetpasswordComponent
   }
 
