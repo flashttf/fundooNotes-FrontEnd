@@ -49,14 +49,14 @@ export class ForgotpasswordComponent implements OnInit {
           
           // console.log(response);
           
-          this.snackBar.open(response.statusMessage,"close",{duration:2500})
+          this.snackBar.open(response.statusMessage,"close",{duration:3500})
           
         }else{
           // console.log("ForgotPass Failed");
           
           // console.log(response);
           
-          this.snackBar.open(response.statusMessage,"close",{duration:2500});
+          this.snackBar.open(response.statusMessage,"close",{duration:3500});
         }
       }
     )
