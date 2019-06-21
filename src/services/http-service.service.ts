@@ -25,9 +25,9 @@ import { ActivatedRoute } from '@angular/router';
     return this.http.put(this.baseurl + url, "", { headers: new HttpHeaders().set("jwtToken", localStorage.getItem('token')) });
   }
   public putRequestforget(url: any,data:any): any {
-    console.log(this.baseurl+url);
-    console.log("data",data);
-    console.log("token",localStorage.getItem('token'));
+    // console.log(this.baseurl+url);
+    // console.log("data",data);
+    // console.log("token",localStorage.getItem('token'));
     return this.http.put(this.baseurl + url,data, { headers: new HttpHeaders().set("jwtToken", localStorage.getItem('token')) });
 }
 

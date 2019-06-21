@@ -1,59 +1,64 @@
 <div class="outer-div" fxLayout="column" fxLayoutAlign="center center" fxFlex="100">
   <mat-card class="register" fxLayout="column" fxLayoutAlign="center center">
-  <mat-card-title  fxLayoutAlign="center start">
-    <div>
-      <h1>Fundoo Notes</h1>
-    </div>  
-  </mat-card-title>
-  <mat-card-subtitle fxLayoutAlign="center">
+    <mat-card-title fxLayoutAlign="center start">
+      <div>
+        <h1>Fundoo Notes</h1>
+      </div>
+    </mat-card-title>
+    <mat-card-subtitle fxLayoutAlign="center">
       <div>
         <h2>Register</h2>
       </div>
     </mat-card-subtitle>
 
     <div>
-        <mat-form-field appearance="outline">
-            <mat-label>Name</mat-label>
-            <input type="text"  matInput placeholder="Enter your name" [formControl]="userName" [(ngModel)]="register.userName">
-            <mat-icon matSuffix>face</mat-icon>
-            </mat-form-field>
-    </div>
-    <div>
-        <mat-form-field appearance="outline">
-            <mat-label>Phone Number</mat-label>
-            <!-- <span matPrefix>+91&nbsp;</span> -->
-            <input type="text" matInput placeholder="Enter your Phone No." [formControl]="phoneNumber" [(ngModel)]="register.phoneNumber">
-            <mat-icon matSuffix>phone</mat-icon>
-            
-          </mat-form-field>
-    </div>
-    <div><mat-form-field appearance="outline">
-        <mat-label>Email</mat-label>
-        <mat-error *ngIf="email.invalid">{{emailValidation()}}</mat-error>
-        <input type="email" matInput placeholder="ex. abc@xyz.com" [formControl]="email" [(ngModel)]="register.email" required>
-        <mat-icon matSuffix>mail</mat-icon>
-        
+      <mat-form-field appearance="outline">
+        <mat-label>Name</mat-label>
+        <input type="text" matInput placeholder="Enter your name" [formControl]="userName"
+          [(ngModel)]="register.userName">
+        <mat-icon matSuffix>face</mat-icon>
       </mat-form-field>
     </div>
     <div>
-        <mat-form-field appearance="outline">
-            <mat-label>Password</mat-label>
-            <input type="password" matInput placeholder="" [type]="hide?'text':'password'" [formControl]="password" [(ngModel)]="register.password">
-            <mat-icon matSuffix (click)="hide=!hide">{{hide?'visibility_off':'visibility'}}</mat-icon>
-            
-          </mat-form-field>
+      <mat-form-field appearance="outline">
+        <mat-label>Phone Number</mat-label>
+        <!-- <span matPrefix>+91&nbsp;</span> -->
+        <input type="text" matInput placeholder="Enter your Phone No." [formControl]="phoneNumber"
+          [(ngModel)]="register.phoneNumber">
+        <mat-icon matSuffix>phone</mat-icon>
+
+      </mat-form-field>
+    </div>
+    <div>
+      <mat-form-field appearance="outline">
+        <mat-label>Email</mat-label>
+        <mat-error *ngIf="email.invalid">{{emailValidation()}}</mat-error>
+        <input type="email" matInput placeholder="ex. abc@xyz.com" [formControl]="email" [(ngModel)]="register.email"
+          required>
+        <mat-icon matSuffix>mail</mat-icon>
+
+      </mat-form-field>
+    </div>
+    <div>
+      <mat-form-field appearance="outline">
+        <mat-label>Password</mat-label>
+        <input type="password" matInput placeholder="" [type]="hide?'text':'password'" [formControl]="userPassword"
+          [(ngModel)]="register.userPassword">
+        <mat-icon matSuffix (click)="hide=!hide">{{hide?'visibility_off':'visibility'}}</mat-icon>
+
+      </mat-form-field>
     </div>
     <div>
       <mat-form-field appearance="outline">
         <mat-label>Confirm Password</mat-label>
         <input type="password" matInput placeholder="" [type]="hide?'text':'password'" [formControl]="confirmpassword">
         <mat-icon matSuffix (click)="hide=!hide">{{hide?'visibility_off':'visibility'}}</mat-icon>
-        
+
       </mat-form-field>
     </div>
-    <div >
-      <button mat-raised-button (click)="onRegister()">Register</button >
-     </div>
+    <div>
+      <button mat-raised-button (click)="onRegister()">Register</button>
+    </div>
   </mat-card>
-  
+
 </div>

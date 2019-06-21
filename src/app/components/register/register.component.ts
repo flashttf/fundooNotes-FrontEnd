@@ -17,7 +17,7 @@ export class RegisterComponent implements OnInit {
 
   userName=new FormControl(this.register.userName,[Validators.required,Validators.minLength(8)]);
   phoneNumber=new FormControl(this.register.phoneNumber,[Validators.required,Validators.minLength(10),Validators.maxLength(10)]);
-  password=new FormControl(this.register.password,[Validators.minLength(6)]);
+  userPassword=new FormControl(this.register.userPassword,[Validators.minLength(6)]);
   confirmpassword=new FormControl('',[Validators.minLength(6)]);
   email=new FormControl(this.register.email,[Validators.required]);
   
@@ -41,9 +41,9 @@ export class RegisterComponent implements OnInit {
   }
 
   onRegister(){
-      if(this.confirmpassword.value===this.password.value){
-        console.log("Hello",this.register);
-        console.log("Ok");
+      if(this.confirmpassword.value===this.userPassword.value){
+        
+        console.log("if cpass==pass");
         this.httpservice.postRequest("register",this.register).subscribe(
           (response:any)=>{
             console.log("in register=====>",response);
