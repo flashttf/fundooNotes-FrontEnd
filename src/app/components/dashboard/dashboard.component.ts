@@ -6,11 +6,28 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./dashboard.component.scss']
 })
 export class DashboardComponent implements OnInit {
-header:any;
+
+  showFiller = false;
+ 
+
+  appTitle:string;
   constructor() { }
 
   ngOnInit() {
-    this.header='fundooNotes'
+    this.appTitle="FundooNotes";
   }
+  
+  
+  sideNavbar(){
+    
+  }
+
+  onSearchChange(){
+
+  }
+
+  onNote() {
+    this.appTitle = "Note";
+}
 
 }

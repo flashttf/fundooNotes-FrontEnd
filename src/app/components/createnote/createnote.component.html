@@ -1,0 +1,50 @@
+<div class="noteComponent">
+    <mat-card (click)="onOpen()" *ngIf="!open">
+        <input matInput placeholder="Take a Note" [formControl]="description">
+        <div fxLayout="row" style="margin-top: -6%;" fxLayoutAlign="end center">
+  
+            <button mat-icon-button class="tools">
+            <mat-icon matTooltip="New List">check_box</mat-icon>
+            </button>
+            <button mat-icon-button>
+            <mat-icon matTooltip="New List">brush</mat-icon>
+            </button>
+            <button mat-icon-button>
+            <mat-icon matTooltip="New List">image</mat-icon>
+            </button>
+            
+            </div>
+    </mat-card>
+  
+    <mat-card *ngIf="open" class="noteMatCard">
+          
+      <div data-text="Take a Note" contenteditable="true">
+  
+            <input matInput placeholder="Title" [formControl]="title" [(ngModel)]="note.title">
+  
+        </div>
+  
+        <br>
+        <br>
+  
+        <div data-text="Take a Note" contenteditable="true" >
+            <input matInput placeholder="Take a Note" [formControl]="description" [(ngModel)]="note.description">
+        </div>
+  
+        <br>
+        <div fxLayout="row" fxLayoutGap="10px">
+<div>
+        <app-icons></app-icons>
+      </div>
+      <div>   
+            <button class="close" mat-icon-button (click)="onClose()" >
+                Close
+            </button>
+          </div>
+          </div>
+    </mat-card>
+    
+  
+  
+  
+  </div>

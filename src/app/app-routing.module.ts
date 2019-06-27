@@ -8,6 +8,9 @@ import { RegisterComponent } from './components/register/register.component';
 import { ForgotpasswordComponent } from './components/forgotpassword/forgotpassword.component';
 import { DashboardComponent } from './components/dashboard/dashboard.component';
 import { ResetpasswordComponent } from './components/resetpassword/resetpassword.component';
+// import { AuthGuardServiceService } from 'src/services/auth-guard-service.service';
+import { CreatenoteComponent } from './components/createnote/createnote.component';
+import { IconsComponent } from './components/icons/icons.component';
  
 const routes: Routes = [
    
@@ -28,13 +31,25 @@ const routes: Routes = [
     path:"forgotpassword",
     component:ForgotpasswordComponent
   },
-  {
-    path:"dashboard",
-    component:DashboardComponent
-  },
+  
   {
     path:"resetpassword/:token",
     component:ResetpasswordComponent
+  },
+  {
+    path:'dashboard',
+    // canActivate:[AuthGuardServiceService],
+    component :DashboardComponent,
+    children:[
+          {
+            path:'createnote',
+            component:CreatenoteComponent
+          },
+          {
+            path:'icons',
+            component:IconsComponent
+          }
+    ]
   }
 
 ];

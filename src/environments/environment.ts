@@ -4,7 +4,8 @@
 
 export const environment = {
   production: false,
-  baseUrl : "http://localhost:9091/users/"
+  baseUrl : "http://localhost:9091/users/",
+  baseUrlNote:"http://localhost:9091/note/",
 };
 
 /*
