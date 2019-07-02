@@ -1,4 +1,4 @@
-import { NgModule } from '@angular/core';
+import { NgModule, Component } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
  
 
@@ -11,6 +11,11 @@ import { ResetpasswordComponent } from './components/resetpassword/resetpassword
 // import { AuthGuardServiceService } from 'src/services/auth-guard-service.service';
 import { CreatenoteComponent } from './components/createnote/createnote.component';
 import { IconsComponent } from './components/icons/icons.component';
+import { LabelComponent } from './components/label/label.component';
+import { EditlableComponent } from './components/editlable/editlable.component';
+import { ArchiveComponent } from './components/archive/archive.component';
+import { TrashComponent } from './components/trash/trash.component';
+import { combineLatest } from 'rxjs';
  
 const routes: Routes = [
    
@@ -42,15 +47,26 @@ const routes: Routes = [
     component :DashboardComponent,
     children:[
           {
-            path:'createnote',
+            path:'',
             component:CreatenoteComponent
           },
+          
           {
-            path:'icons',
-            component:IconsComponent
+            path:'archive',
+            component:ArchiveComponent
+          },
+          {
+            path:'trash',
+            component:TrashComponent
           }
+          
     ]
-  }
+  },
+  {
+    path:'label',
+    component:LabelComponent
+  },
+  
 
 ];
 

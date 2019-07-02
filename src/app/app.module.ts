@@ -29,6 +29,13 @@ import { ResetpasswordComponent } from './components/resetpassword/resetpassword
 import { CreatenoteComponent } from './components/createnote/createnote.component';
 
 import { IconsComponent } from './components/icons/icons.component';
+import { LabelComponent } from './components/label/label.component';
+import { EditlableComponent } from './components/editlable/editlable.component';
+import { ArchiveComponent } from './components/archive/archive.component';
+import { TrashComponent } from './components/trash/trash.component';
+import { DisplaynoteComponent } from './components/displaynote/displaynote.component';
+import { LabeltonoteComponent } from './components/labeltonote/labeltonote.component';
+import { NoteUpdateComponent } from './components/note-update/note-update.component';
 
 
 
@@ -43,6 +50,20 @@ import { IconsComponent } from './components/icons/icons.component';
     CreatenoteComponent,
   
     IconsComponent,
+  
+    LabelComponent,
+  
+    EditlableComponent,
+  
+    ArchiveComponent,
+  
+    TrashComponent,
+  
+    DisplaynoteComponent,
+  
+    LabeltonoteComponent,
+  
+    NoteUpdateComponent,
   
    
 

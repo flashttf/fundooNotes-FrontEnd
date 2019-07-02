@@ -1,0 +1,14 @@
+<h1>Edit Labels</h1>
+<div fxLayout="column" fxLayoutAlign="center center">
+  <mat-form-field>
+    <input matInput placeholder="Label" [formControl]=labelName [(ngModel)]="label.labelName">
+  </mat-form-field>
+  <div>
+    getLabelComponent
+  </div>
+  <div class="close">
+    <button mat-raised-button (click)="onClose()">
+      close
+    </button>
+  </div>
+</div>

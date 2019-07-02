@@ -49,6 +49,5 @@ export class CreatenoteComponent implements OnInit {
           
       }
     }
-  
   }
 

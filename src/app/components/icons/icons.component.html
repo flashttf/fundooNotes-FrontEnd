@@ -1,3 +1,29 @@
-<p>
-  icons works!
-</p>
+<div class="icon-div" fxLayout="layout-wrap" fxLayoutGap="25px">
+<button mat-icon-button style="padding: 5px" (click)="onRemind()">
+ <mat-icon matTooltip="Remind me"> add_alert</mat-icon>
+  </button>
+
+  <button mat-icon-button style="padding: 5px">
+    <mat-icon matTooltip="Collaborate">person_add</mat-icon>
+  </button>
+
+  <button mat-icon-button style="padding: 5px" (click)="onChangeColor()" [matMenuTriggerFor]="colorMenu">
+    <mat-icon matTooltip="Change Color">color_lens</mat-icon>
+  </button>
+
+  <button mat-icon-button style="padding: 5px">
+    <mat-icon matTooltip="Archive">archive</mat-icon>
+  </button>
+
+  <button mat-icon-button style="padding: 5px">
+    <mat-icon matTooltip="More">more_vert</mat-icon>
+  </button>
+
+  <button mat-icon-button style="padding: 5px">
+    <mat-icon matTooltip="Undo">undo</mat-icon>
+  </button>
+
+  <button mat-icon-button style="padding: 5px">
+    <mat-icon matTooltip="Redo">redo</mat-icon>
+  </button>
+</div>
