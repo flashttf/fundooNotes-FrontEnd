@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { MatSnackBar } from '@angular/material';
+import { MatSnackBar, MatDialog } from '@angular/material';
 // import {MatDialog} from '@angular/material/dialog';
 import { LabelService } from 'src/services/label.service';
 import { NotesService } from 'src/services/notes.service';
@@ -7,6 +7,7 @@ import { DataService } from 'src/services/data.service';
 import { FormControl } from '@angular/forms';
 import { Router } from '@angular/router';
 import { EditlableComponent } from '../editlable/editlable.component';
+import { BehaviorSubject } from 'rxjs';
 
 @Component({
   selector: 'app-dashboard',
@@ -15,22 +16,27 @@ import { EditlableComponent } from '../editlable/editlable.component';
 })
 export class DashboardComponent implements OnInit {
 
-  showFiller = false;
+  showFiller=false;
+  
+  
  
 
   appTitle:string;
   constructor(private labelService:LabelService,
     private noteService:NotesService,private dataService:DataService,
-    private router:Router) { }
+    private router:Router,private dialog:MatDialog) { }
 
     open:boolean;
-    labels:[]
+    labels:[];
+    data:[];
 
     search=new FormControl();
     message:string;
 
   ngOnInit() {
     this.appTitle="FundooNotes";
+
+    // this.getAllLabels();
     this.dataService.currentMessage.subscribe(
       message=>{;this.message=message,this.getAllLabels()}
     )
@@ -40,13 +46,15 @@ export class DashboardComponent implements OnInit {
     
   }
 
-  labelList=[];
+  
   getAllLabels() {
     this.labelService.getRequest("readAll").subscribe(
       (Response:any)=>{
-        this.labelList=Response;
-        console.log("labels on dashboard-->",this.labelList);
+      
         
+        this.labels=Response;
+        console.log("labels on dashboard-->",this.data);
+       
       }
     )
   }
@@ -55,15 +63,17 @@ export class DashboardComponent implements OnInit {
 
   onNote() {
     this.appTitle = "Note";
-    this.router.navigate(['dashboard']);
+    this.router.navigate(['dashboard/note']);
 }
 
-openDialogLabel(notes:any){
-  // const dialogRef=this.dialog.open(EditlableComponent,
-  //   {
-  //     height:'600px',
-  //     width:'450px',
-  //   });
+openDialogLabel():void{
+  console.log("label",this.labels);
+  
+    this.dialog.open(EditlableComponent,
+    {
+      height:'300px',
+      width:'250px',
+    });
 }
 
 onAccount(){

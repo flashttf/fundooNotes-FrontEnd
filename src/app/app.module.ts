@@ -3,8 +3,9 @@ import { NgModule } from '@angular/core';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { MatButtonModule, MatCheckboxModule, MatSnackBarModule, MatToolbarModule, MatTooltipModule,  MatMenuModule, MatSidenavModule, MatListModule  } from '@angular/material';
+import { MatButtonModule, MatCheckboxModule, MatSnackBarModule, MatToolbarModule, MatTooltipModule,  MatMenuModule, MatSidenavModule, MatListModule, MatChipsModule  } from '@angular/material';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import {MatDialogModule} from '@angular/material/dialog';
 
 
 import { FlexLayoutModule } from "@angular/flex-layout";
@@ -36,6 +37,7 @@ import { TrashComponent } from './components/trash/trash.component';
 import { DisplaynoteComponent } from './components/displaynote/displaynote.component';
 import { LabeltonoteComponent } from './components/labeltonote/labeltonote.component';
 import { NoteUpdateComponent } from './components/note-update/note-update.component';
+import { HttpServiceService } from 'src/services/http-service.service';
 
 
 
@@ -73,6 +75,7 @@ import { NoteUpdateComponent } from './components/note-update/note-update.compon
   imports: [
     BrowserModule,
     MatInputModule,
+    MatDialogModule,
     AppRoutingModule,
     MatButtonModule,
     MatCheckboxModule,
@@ -89,13 +92,19 @@ import { NoteUpdateComponent } from './components/note-update/note-update.compon
     MatTooltipModule,
     MatMenuModule,
     MatSidenavModule,
-    MatListModule
+    MatListModule,
+    MatChipsModule
     
     
     
 
   ],
-  providers: [],
+  providers: [HttpServiceService],
+  entryComponents:[
+    NoteUpdateComponent,
+    EditlableComponent,
+    
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

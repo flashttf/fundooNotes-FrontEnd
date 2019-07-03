@@ -3,7 +3,7 @@ import { Label } from 'src/app/model/label';
 import { FormControl } from '@angular/forms';
 import { MatSnackBar } from '@angular/material';
 import { LabelService } from 'src/services/label.service';
-import { Router } from '@angular/router';
+  
 import { DataService } from 'src/services/data.service';
 
 @Component({
@@ -20,7 +20,7 @@ export class EditlableComponent implements OnInit {
   labelName=new FormControl(this.label.labelName);
 
   constructor(private snackbar:MatSnackBar,private labelService:LabelService,
-    private router:Router,private dataService:DataService) { }
+    private dataService:DataService) { }
 
   ngOnInit() {
   }

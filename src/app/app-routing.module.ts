@@ -16,6 +16,7 @@ import { EditlableComponent } from './components/editlable/editlable.component';
 import { ArchiveComponent } from './components/archive/archive.component';
 import { TrashComponent } from './components/trash/trash.component';
 import { combineLatest } from 'rxjs';
+import { DisplaynoteComponent } from './components/displaynote/displaynote.component';
  
 const routes: Routes = [
    
@@ -49,6 +50,11 @@ const routes: Routes = [
           {
             path:'',
             component:CreatenoteComponent
+          },
+
+          {
+            path:'note',
+            component:DisplaynoteComponent
           },
           
           {

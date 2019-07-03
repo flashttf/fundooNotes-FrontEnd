@@ -10,7 +10,7 @@ import { NoteUpdateComponent } from '../note-update/note-update.component';
   styleUrls: ['./displaynote.component.scss']
 })
 export class DisplaynoteComponent implements OnInit {
-  notes:[]
+  notes : any[]
 
   constructor(private snackbar:MatSnackBar,private noteService:NotesService,
     private dataService:DataService,public dialog:MatDialog) { }
@@ -20,23 +20,26 @@ export class DisplaynoteComponent implements OnInit {
     this.dataService.currentMessage.subscribe(
       message=>{this.message=message,this.getAllNotes()}
     )
+    // this.getAllNotes();
   }
   getAllNotes() {
     this.noteService.getRequest("readNote").subscribe(
       (Response:any)=>{
+        console.log("get response==>",Response);
+        
         this.notes=Response;
       }
     )
   }
 
   onUpdate(note:any):void{
-    const dialogRef=this.dialog.open(NoteUpdateComponent,{
+    this.dialog.open(NoteUpdateComponent,{
         height:'300px',
-        width:'300px',
+        width:'150px',
         data:{
           'title':note.title,
           'description':note.description,
-          'noteId':note.noteId
+          
         }
     }
       );

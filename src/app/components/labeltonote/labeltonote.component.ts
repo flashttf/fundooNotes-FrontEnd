@@ -26,9 +26,7 @@ export class LabeltonoteComponent implements OnInit {
     )
   } 
   getAllLabels() {
-    console.log(this.labelInfo);
-    console.log(this.labelInfo.noteId);
-    console.log(this.label);
+    
     
     this.noteService.getRequest('AddLabelToNote?labelId'+this.labelInfo.labelId+'&noteId'+this.labelInfo.noteId).subscribe(
       (Response:any)=>{
@@ -39,9 +37,9 @@ export class LabeltonoteComponent implements OnInit {
         }
       }
     )
-    
-    
-    
   }
 
+  onRemove(label){
+    
+  }
 }

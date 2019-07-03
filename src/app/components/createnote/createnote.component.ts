@@ -6,6 +6,7 @@ import { MatSnackBar } from '@angular/material';
 import { Router } from '@angular/router';
 import { NotesService } from 'src/services/notes.service';
 // import { Router } from '@angular/router';
+import { DataService } from 'src/services/data.service';
 
 
 @Component({
@@ -23,7 +24,7 @@ export class CreatenoteComponent implements OnInit {
   
   description=new FormControl(this.note.description);
   
-    constructor(private snackBar:MatSnackBar,private notesService:NotesService,
+    constructor(private snackBar:MatSnackBar,private notesService:NotesService,private dataservice:DataService
       ) { }
   
     ngOnInit() {
@@ -39,8 +40,12 @@ export class CreatenoteComponent implements OnInit {
         console.log(this.note.title);
         this.notesService.postRequest("create",this.note).subscribe(
           (response:any)=>{
+            console.log("note response==>",response);
+            
+          this.dataservice.changeMessage('fsdsef');
               if(response.statusCode==200){
                 this.snackBar.open(response.statusMessage,"close",{duration:2500});
+                
               }else{
                 this.snackBar.open(response.statusMessage,"close",{duration:2500})
               }
@@ -48,6 +53,8 @@ export class CreatenoteComponent implements OnInit {
         )
           
       }
+      this.note.title=null;
+      this.note.description=null;
     }
   }
 

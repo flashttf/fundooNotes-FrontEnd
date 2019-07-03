@@ -10,6 +10,8 @@
   <button mat-icon-button style="padding: 5px" (click)="onChangeColor()" [matMenuTriggerFor]="colorMenu">
     <mat-icon matTooltip="Change Color">color_lens</mat-icon>
   </button>
+  <mat-menu #colorMenu="matMenu"></mat-menu>
+
 
   <button mat-icon-button style="padding: 5px">
     <mat-icon matTooltip="Archive">archive</mat-icon>

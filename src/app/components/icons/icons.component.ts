@@ -12,4 +12,7 @@ export class IconsComponent implements OnInit {
   ngOnInit() {
   }
 
+  onRemind(){
+    
+  }
 }
