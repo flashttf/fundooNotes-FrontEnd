@@ -69,7 +69,7 @@ const routes: Routes = [
     ]
   },
   {
-    path:'label',
+    path:"label/:token",
     component:LabelComponent
   },
   

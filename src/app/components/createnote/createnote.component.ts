@@ -38,11 +38,11 @@ export class CreatenoteComponent implements OnInit {
       this.open=false;
       if(this.note.title!=null||this.note.description!=null){
         console.log(this.note.title);
-        this.notesService.postRequest("create",this.note).subscribe(
-          (response:any)=>{
+        this.notesService.createNote(this.note).subscribe(
+          (response)=>{
             console.log("note response==>",response);
             
-          this.dataservice.changeMessage('fsdsef');
+          this.dataservice.changeMessage('changedMessage');
               if(response.statusCode==200){
                 this.snackBar.open(response.statusMessage,"close",{duration:2500});
                 

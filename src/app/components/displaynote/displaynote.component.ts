@@ -23,7 +23,7 @@ export class DisplaynoteComponent implements OnInit {
     // this.getAllNotes();
   }
   getAllNotes() {
-    this.noteService.getRequest("readNote").subscribe(
+    this.noteService.getNotes().subscribe(
       (Response:any)=>{
         console.log("get response==>",Response);
         

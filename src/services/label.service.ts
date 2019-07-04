@@ -1,29 +1,30 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { environment } from '../../src/environments/environment';
+import { HttpServiceService } from './http-service.service';
  
 @Injectable({
   providedIn: 'root'
 })
 export class LabelService {
 
-  baseUrl=environment.baseUrlLabel;
 
-  constructor(private httpClient:HttpClient) { }
 
-  public postRequst(url:any,data:any):any{
-    return this.httpClient.post(this.baseUrl+url,data,{headers:new HttpHeaders().set('token',localStorage.getItem('token'))});
+  constructor(private httpService:HttpServiceService) { }
+
+  public createLabel(data:any):any{
+    return this.httpService.postRequest("label/create",data);
   }
 
-  public putRequest(url:any,data:any):any{
-    return this.httpClient.put(this.baseUrl+url,data,{headers:new HttpHeaders().set('token',localStorage.getItem('token'))});
+  public updateLabel(data:any):any{
+    return this.httpService.putRequest("label/update",data);
   }
 
-  public deleteRequest(url:any):any{
-    return this.httpClient.delete(this.baseUrl+url,{headers:new HttpHeaders().set('token',localStorage.getItem('token'))});
+  public deleteLabel():any{
+    return this.httpService.deleteRequest("label/delete");
   }
 
-  public getRequest(url:any):any {
-    return this.httpClient.get(this.baseUrl+url,{headers:new HttpHeaders().set('token',localStorage.getItem('token'))});
+  public displayLabels():any {
+    return this.httpService.getRequest("label/readAll");
   }
 }

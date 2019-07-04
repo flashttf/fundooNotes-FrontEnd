@@ -18,7 +18,7 @@ export class DashboardComponent implements OnInit {
 
   showFiller=false;
   
-  
+  appHeadTitle:string;
  
 
   appTitle:string;
@@ -34,6 +34,7 @@ export class DashboardComponent implements OnInit {
     message:string;
 
   ngOnInit() {
+    
     this.appTitle="FundooNotes";
 
     // this.getAllLabels();
@@ -48,7 +49,7 @@ export class DashboardComponent implements OnInit {
 
   
   getAllLabels() {
-    this.labelService.getRequest("readAll").subscribe(
+    this.labelService.displayLabels().subscribe(
       (Response:any)=>{
       
         

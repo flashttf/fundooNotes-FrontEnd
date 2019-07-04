@@ -9,6 +9,7 @@ import { LabelService } from 'src/services/label.service';
 })
 export class LabelComponent implements OnInit {
   label=[];
+  token:any;
   
   constructor(private labelService:LabelService) { }
 
@@ -19,7 +20,8 @@ export class LabelComponent implements OnInit {
   }
 
   displayAllLabels() {
-  this.labelService.getRequest("readAll").subscribe(
+    this.token = localStorage.getItem('token');
+  this.labelService.displayLabels().subscribe(
     (Response:any)=>{
       this.label=Response;
       console.log(this.label);

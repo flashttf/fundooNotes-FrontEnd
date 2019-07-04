@@ -27,7 +27,7 @@ export class EditlableComponent implements OnInit {
 
   onClose(){
     if(this.label.labelName!=null){
-      this.labelService.postRequst("create",this.label).subscribe(
+      this.labelService.updateLabel(this.label).subscribe(
       (Response:any)=>{
         if(Response.statusCode==200){
           this.dataService.changeMessage("label");

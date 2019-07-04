@@ -44,7 +44,7 @@ export class RegisterComponent implements OnInit {
       if(this.confirmpassword.value===this.userPassword.value){
         
         console.log("if cpass==pass");
-        this.httpservice.postRequest("register",this.register).subscribe(
+        this.httpservice.postRequest("users/register",this.register).subscribe(
           (response:any)=>{
             console.log("in register=====>",response);
             

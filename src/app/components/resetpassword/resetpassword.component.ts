@@ -34,7 +34,7 @@ export class ResetpasswordComponent implements OnInit {
     if (this.confirmpassword.value === this.userPassword.value) {
       // console.log("entering if=true stmnt");
 
-      this.httpService.putRequestforget("resetpassword/" + this.token, this.reset).subscribe(
+      this.httpService.putRequestforget("users/resetpassword/" + this.token, this.reset).subscribe(
         (response: any) => {
           // console.log("enter response loop");
           // console.log(response);

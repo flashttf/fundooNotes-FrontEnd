@@ -40,7 +40,7 @@ export class ForgotpasswordComponent implements OnInit {
     // console.log("ForgotPass Method Called");
 
     console.log(this.email);
-    this.httpService.putRequest("forgotpassword?emailId=" + this.forgotpassword.emailId).subscribe(
+    this.httpService.putRequest("users/forgotpassword?emailId=" + this.forgotpassword.emailId,"").subscribe(
       (response: any) => {
         // console.log("In ForgotPassword=====>");
 

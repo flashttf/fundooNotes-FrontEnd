@@ -4,9 +4,9 @@
 
 export const environment = {
   production: false,
-  baseUrl : "http://localhost:9091/users/",
-  baseUrlNote:"http://localhost:9091/note/",
-  baseUrlLabel:"http://localhost:9091/label/",
+  baseUrl : "http://localhost:9091/",
+  // baseUrlNote:"http://localhost:9091/note/",
+  // baseUrlLabel:"http://localhost:9091/label/",
 };
 
 /*

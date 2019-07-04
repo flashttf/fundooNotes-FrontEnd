@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { environment } from 'src/environments/environment';
-import { HttpClient, HttpHeaders } from '@angular/common/http';
+
+import { HttpServiceService } from './http-service.service';
 
 
 
@@ -9,23 +10,27 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 })
 export class NotesService {
 
-  baseUrl=environment.baseUrlNote;
+  
 
-  constructor(private httpClient:HttpClient) { }
+  constructor(private httpservice:HttpServiceService) { }
 
-    public postRequest(url:any,data:any):any{
-      return this.httpClient.post(this.baseUrl+url,data,{headers:new HttpHeaders().set('token',localStorage.getItem('token'))});
+
+    public createNote(data){
+      console.log("Hitting Note Service");
+      
+     return this.httpservice.postRequest("note/create",data);
     }
 
-    public putRequest(url:any,data:any):any{
-      return this.httpClient.put(this.baseUrl+url,data,{headers:new HttpHeaders().set('token',localStorage.getItem('token'))});
+    public updateNote(data:any):any{
+      console.log("Hitting Note Service");
+      return this.httpservice.putRequest("note/update",data);
     }
 
-    public deleteRequest(url:any):any{
-      return this.httpClient.put(this.baseUrl+url,{headers:new HttpHeaders().set('token',localStorage.getItem('token'))});
+    public deleteNote():any{
+      return this.httpservice.deleteRequest("note/delete");
     }
 
-    public getRequest(url:any):any{
-      return this.httpClient.get(this.baseUrl+url,{headers:new HttpHeaders().set('token',localStorage.getItem('token'))})
+    public getNotes():any{
+      return this.httpservice.getRequest("note/readNote");
     }
 }
