@@ -108,7 +108,7 @@
         <div style="padding-left:5%;">
            <h5>LABELS</h5>
         </div>
-        <!-- <app-label></app-label> -->
+       
          <div fxFlex="100" fxLayout="column">
           
           <div *ngFor="let data of labels">
@@ -122,7 +122,7 @@
       
             </button>
           </div>
-          <button class="sidenav" mat-button (click)="openDialogLabel()">
+          <button class="sidenav" mat-button (click)="openDialogLabel()" style="margin-left: 20px">  
               
               <mat-icon>edit</mat-icon> Edit Labels
           </button>

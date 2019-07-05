@@ -51,7 +51,7 @@ const routes: Routes = [
             path:'',
             component:CreatenoteComponent
           },
-
+         
           {
             path:'note',
             component:DisplaynoteComponent

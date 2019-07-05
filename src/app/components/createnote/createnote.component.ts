@@ -14,6 +14,7 @@ import { DataService } from 'src/services/data.service';
   templateUrl: './createnote.component.html',
   styleUrls: ['./createnote.component.scss']
 })
+
 export class CreatenoteComponent implements OnInit {
 
   open:boolean;
