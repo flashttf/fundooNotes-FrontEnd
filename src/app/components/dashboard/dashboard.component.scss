@@ -2,22 +2,28 @@
  .notes .sidenav{
    width: 300px;
  }
+
  mat-sidenav{
    width: 290px;
    overflow: hidden;
  }
+
  .sidenav mat-icon{
    margin-left: -196px;
  }
+
  .sidenavre mat-icon{
   margin-left: -167px;
  }
+
  .reminder .sidenavre{
    width: 300px;
 }
+
 .menu-spacer {
   flex: 1 1 auto;
 }
+
 .content{
   background-color: white;
   overflow: hidden;

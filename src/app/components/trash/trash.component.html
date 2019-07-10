@@ -1,3 +1,27 @@
-<p>
-  trash works!
-</p>
+<div fxLayout="row" fxLayoutAlign="center center" class="1">
+  <div fxLayout="row wrap" fxFlex="85" fxLayoutGap="50px" fxLayoutAlign="center center">
+     <div *ngFor="let note of notes">
+        <div *ngIf="note.trash==true">
+           <mat-card  class="matcard2">
+              <form>
+                    <div>
+                       {{note.title}}
+                    </div>
+                    <br>
+                    <div>
+                       {{note.description}}
+                    </div>
+                 
+                 
+                 <div class=appicons>
+                    <app-icons [noteInfo]=note></app-icons>
+                 </div>
+              </form>
+           </mat-card>
+        </div>
+     </div>
+  </div>
+</div>
+
+
+

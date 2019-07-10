@@ -61,10 +61,7 @@ const routes: Routes = [
             path:'archive',
             component:ArchiveComponent
           },
-          {
-            path:'trash',
-            component:TrashComponent
-          }
+          
           
     ]
   },
@@ -73,7 +70,10 @@ const routes: Routes = [
     component:LabelComponent
   },
   
-
+  {
+    path:'trash',
+    component:TrashComponent
+  }
 ];
 
 @NgModule({

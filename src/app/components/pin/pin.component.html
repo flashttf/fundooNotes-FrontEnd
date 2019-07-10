@@ -1,0 +1,13 @@
+<div>
+  <button mat-icon-button (click)="pin()" *ngIf="toggle==true">
+    <mat-icon><img style="margin-left: 180px" src="../../../assets/alert.svg"></mat-icon>
+  </button>
+</div>
+
+<div>
+  <button mat-icon-button (click)="unPin" *ngIf="toggle==false">
+    <mat-icon>
+      <img style="margin-left: 180px" src="../../../assets/alert.svg" >
+    </mat-icon>
+  </button>
+</div>

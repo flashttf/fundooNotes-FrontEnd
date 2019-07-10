@@ -15,6 +15,8 @@ import { MatIconModule } from '@angular/material/icon';
 
 import { MatInputModule } from '@angular/material/input';
 import { MatCardModule } from '@angular/material/card';
+import {MatDatepickerModule} from '@angular/material/datepicker';
+
 
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { LoginComponent } from './components/login/login.component';
@@ -38,6 +40,7 @@ import { DisplaynoteComponent } from './components/displaynote/displaynote.compo
 import { LabeltonoteComponent } from './components/labeltonote/labeltonote.component';
 import { NoteUpdateComponent } from './components/note-update/note-update.component';
 import { HttpServiceService } from 'src/services/http-service.service';
+import { PinComponent } from './components/pin/pin.component';
 
 
 
@@ -67,6 +70,8 @@ import { HttpServiceService } from 'src/services/http-service.service';
   
     NoteUpdateComponent,
   
+    PinComponent,
+  
    
 
 
@@ -93,12 +98,9 @@ import { HttpServiceService } from 'src/services/http-service.service';
     MatMenuModule,
     MatSidenavModule,
     MatListModule,
-    MatChipsModule
-    
-    
-    
-
-  ],
+    MatChipsModule,
+    MatDatepickerModule
+ ],
   providers: [HttpServiceService],
   entryComponents:[
     NoteUpdateComponent,

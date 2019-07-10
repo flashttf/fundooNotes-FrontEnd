@@ -26,7 +26,6 @@ import { ActivatedRoute } from '@angular/router';
     return this.http.put(this.baseurl + url, data, { headers: new HttpHeaders().set("token", localStorage.getItem('token')) });
   }
   public putRequestforget(url: any,data:any): any {
-    
     return this.http.put(this.baseurl + url,data, { headers: new HttpHeaders().set("token", localStorage.getItem('token')) });
 }
 

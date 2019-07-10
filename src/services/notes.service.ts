@@ -1,7 +1,8 @@
 import { Injectable } from '@angular/core';
-import { environment } from 'src/environments/environment';
+
 
 import { HttpServiceService } from './http-service.service';
+import { Note } from 'src/app/model/note';
 
 
 
@@ -9,8 +10,8 @@ import { HttpServiceService } from './http-service.service';
   providedIn: 'root'
 })
 export class NotesService {
-
   
+  note:Note=new Note();
 
   constructor(private httpservice:HttpServiceService) { }
 
@@ -21,16 +22,26 @@ export class NotesService {
      return this.httpservice.postRequest("note/create",data);
     }
 
-    public updateNote(data:any):any{
+    public updateNote(url:any,data:any):any{                                                                     
       console.log("Hitting Note Service");
-      return this.httpservice.putRequest("note/update",data);
+      return this.httpservice.putRequest(url,data);
     }
 
-    public deleteNote():any{
-      return this.httpservice.deleteRequest("note/delete");
+    public deleteNote(url:any):any{
+      return this.httpservice.deleteRequest(url);
     }
 
     public getNotes():any{
       return this.httpservice.getRequest("note/readNote");
     }
+    
+    public onArchive(url:any) {
+    return this.httpservice.deleteRequest(url);
+    }
+
+   public addLabelToNote(url,data) {
+    return this.httpservice.putRequest(url,data);  
+  }
+   
+  
 }
