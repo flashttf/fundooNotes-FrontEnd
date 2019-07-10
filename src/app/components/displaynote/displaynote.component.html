@@ -1,36 +1,37 @@
-<div fxLayoutAlign="center center" fxFlex="100" class="displayNote" fxLayout="column">
+<div fxLayoutAlign="center center" fxFlex="100" class="displayNote" fxLayout="row">
   <!-- <div fxLayout="row"> -->
-  <div fxLayout="column" fxLayoutGap="30px">
- <div fxLayour="row wrap">
-   
-      <div *ngFor="let note of notes">
-         
-          <!-- *ngIf="note.archive==false && note.trash==false && note.pin==false" -->
-            <mat-card  class="matcard2">
-                  <form>
-                    <div class="noteArea" >
-                      <div (click)="onUpdate(note)">
-                        <div>
-                          {{note.title}}
-                        </div>
-                        <br>
-                        <div>
-                          {{note.description}}
-                        </div>
-                      </div>
-                        <div>
-                        <app-labeltonote></app-labeltonote>
-                      </div>
+  <div fxLayout="column" fxFlex="85" fxLayoutGap="30px">
 
-                        <div>
-                            <app-icons></app-icons>
-                        </div>  
-                      </div>
-                  </form>
-            </mat-card>
+    <div fxLayout="row wrap" fxLayoutGap="15px">
+      <div *ngFor="let note of notes">
+        <div fxLayout="column" fxFlex="90">
+          <!-- *ngIf="note.archive==false && note.trash==false && note.pin==false" -->
+          <mat-card class="matcard2">
+            <form>
+              <div class="noteArea">
+                <div (click)="onUpdate(note)">
+                  <div class="bold">
+                    {{note.title}}
+                  </div>
+                  <br>
+                  <div class="bold">
+                    {{note.description}}
+                  </div>
+                </div>
+                <div>
+                  <app-labeltonote></app-labeltonote>
+                </div>
+
+                <div>
+                  <app-icons [noteInfo]=note></app-icons>
+                </div>
+              </div>
+            </form>
+          </mat-card>
+        </div>
       </div>
     </div>
 
   </div>
-<!-- </div> -->
+  <!-- </div> -->
 </div>

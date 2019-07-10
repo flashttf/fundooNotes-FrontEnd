@@ -1,9 +1,9 @@
-<div class="icon-div" fxLayout="layout-wrap" fxLayoutGap="25px">
-<button mat-icon-button  (click)="onRemind()" [matMenuTriggerFor]="menu3">
- <mat-icon matTooltip="Remind me"> add_alert</mat-icon>
+<div fxLayout="row"  fxLayoutAlign="center center">
+  <button mat-icon-button (click)="onRemind()" [matMenuTriggerFor]="menu3">
+    <mat-icon matTooltip="Remind me"> add_alert</mat-icon>
   </button>
 
-  <button mat-icon-button  (click)="personadd()">
+  <button mat-icon-button (click)="personadd()">
     <mat-icon matTooltip="Collaborate">person_add</mat-icon>
   </button>
 
@@ -12,20 +12,20 @@
   </button>
 
   <mat-menu #colorMenu="matMenu">
-<div *ngFor="let colors of arrayColor" fxLayout="row">
-  <div *ngFor="let color of colors">
-<button [ngStyle]="{'background-color':color.hexcode}" mat-mini-fab (click)="setColor(color.name)">
-</button>
-</div>
-</div>
-</mat-menu>
+    <div *ngFor="let colors of arrayColor" fxLayout="row">
+      <div *ngFor="let color of colors">
+        <button [ngStyle]="{'background-color':color.hexcode}" mat-mini-fab (click)="setColor(color.name)">
+        </button>
+      </div>
+    </div>
+  </mat-menu>
 
-<button mat-icon-button  (click)="insertPhoto()">
-<mat-icon >insert_photo</mat-icon>
-</button>
+  <button mat-icon-button (click)="insertPhoto()">
+    <mat-icon>insert_photo</mat-icon>
+  </button>
 
-<button mat-icon-button (click)="onArchive()">
-    <mat-icon matTooltip="Archive" >archive</mat-icon>
+  <button mat-icon-button (click)="onArchive()">
+    <mat-icon matTooltip="Archive">archive</mat-icon>
   </button>
 
   <button mat-icon-button [matMenuTriggerFor]="moreVert">
@@ -49,17 +49,16 @@
 
   <mat-menu #menu="matMenu">
     <div *ngFor="let labels of label" fxLayoutGap="20px" fxLayout="column">
-        <mat-checkbox (click)="addLabel(labels)" >
-          {{labels.labelName}}
-        </mat-checkbox>
+      <mat-checkbox (click)="addLabel(labels)">
+        {{labels.labelName}}
+      </mat-checkbox>
     </div>
   </mat-menu>
 
   <div>
     <mat-menu #menu3="matMenu">
       <span style="margin-left: 10px">Reminder:</span>
-    
+
     </mat-menu>
   </div>
 </div>
- 

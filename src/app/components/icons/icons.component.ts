@@ -16,10 +16,10 @@ export class IconsComponent implements OnInit {
 
 
   label:[];
-  note:Note=new Note();
+  // note:Note=new Note();
   toggle:boolean= true;
   message:string;
-  
+ 
 
 
 
@@ -87,6 +87,8 @@ this.noteService.updateNote("/color?noteId="+this.noteInfo.noteId,color).subscri
 onArchive(){
   this.noteService.onArchive("note/archive?noteId="+this.noteInfo.noteId).subscribe(
     (response:any)=>{
+      console.log(this.noteInfo.noteId);
+      
       if(response.statusCode==200){
         this.dataService.changeMessage('archive');
         this.snackbar.open("Note archived","undo",{duration:2500});
@@ -98,12 +100,18 @@ onArchive(){
 }
 
 onDelete(){
-  this.noteService.deleteNote("note/trash?noteId="+this.noteInfo.noteId).subscribe(
+  console.log(this.noteInfo.noteId);
+  
+  this.noteService.deleteNote("note/delete?noteId="+this.noteInfo.noteId).subscribe(
     (response:any)=>{
+      console.log(this.noteInfo);
+      
       if(response.statusCode==200){
+        console.log(response);
         this.dataService.changeMessage('delete');
         this.snackbar.open("Note deleted.","close",{duration:2500});
       }else{
+        console.log(this.noteInfo.noteId);
         this.snackbar.open("Note not deleted","close",{duration:2500});
       }
     }

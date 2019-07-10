@@ -1,9 +1,9 @@
 .noteComponent{
-    margin-left: 24%;
+    
     padding-top: 3%;
-    width: 546px;
+    width: 588px;
     height: 100%;
-
+    margin-left: 250px;
 }
 
 
@@ -12,6 +12,6 @@
     border-radius: 10px;
 }
 
-// .close{
-//     margin-left: 140px;
-// }
+mat-icon{
+    font-size: 15px
+}

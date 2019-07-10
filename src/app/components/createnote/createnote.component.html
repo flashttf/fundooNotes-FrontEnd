@@ -1,52 +1,51 @@
-<div class="noteComponent">
-    <mat-card (click)="onOpen()" *ngIf="!open">
-        <input matInput placeholder="Take a Note" [formControl]="description">
-        <div fxLayout="row" style="margin-top: -6%;" fxLayoutAlign="end center">
-  
-            <button mat-icon-button class="tools">
-            <mat-icon matTooltip="Check">check_box</mat-icon>
-            </button>
-            <button mat-icon-button>
-            <mat-icon matTooltip="Color">brush</mat-icon>
-            </button>
-            <button mat-icon-button>
-            <mat-icon matTooltip="Add Image">image</mat-icon>
-            </button>
-            
-            </div>
-    </mat-card>
-  
-    <mat-card *ngIf="open" class="noteMatCard">
-          
-      <div data-text="Take a Note" contenteditable="true">
-  
-            <input matInput placeholder="Title" [formControl]="title" [(ngModel)]="note.title">
-  
-        </div>
-  
-        <br>
-        <br>
-  
-        <div data-text="Take a Note" contenteditable="true" >
-            <input matInput placeholder="Take a Note" [formControl]="description" [(ngModel)]="note.description">
-        </div>
-  
-        <br>
-        <div fxLayout="row" fxLayoutGap="10px">
-<div>
-        <app-icons></app-icons>
-      </div>
-      <div>   
-            <button class="close" mat-icon-button (click)="onClose()" style="padding: 5px" >
-                Close
-            </button>
-          </div>
-          </div>
-    </mat-card>
-    <div style="margin-top: 35px">
-    <app-displaynote></app-displaynote>
-  </div>
-  </div>
+<div class="noteComponent" fxLayout="column" fxLayoutAlign="center center">
+  <mat-card (click)="onOpen()" *ngIf="!open">
+    <input matInput placeholder="Take a Note" [formControl]="description" style="width: 588px">
+    <div fxLayout="row" style="margin-top: -5%;" fxLayoutAlign="end center">
 
-  
-  
+      <button mat-icon-button class="tools">
+        <mat-icon matTooltip="Check">check_box</mat-icon>
+      </button>
+      <button mat-icon-button>
+        <mat-icon matTooltip="Color">brush</mat-icon>
+      </button>
+      <button mat-icon-button>
+        <mat-icon matTooltip="Add Image">image</mat-icon>
+      </button>
+    </div>
+  </mat-card>
+
+  <div>
+    <mat-card *ngIf="open" style="width: 588px">
+
+      <div data-text="Take a Note" contenteditable="true">
+
+        <input matInput placeholder="Title" [formControl]="title" [(ngModel)]="note.title">
+
+      </div>
+
+      <br>
+      <br>
+
+      <div data-text="Take a Note" contenteditable="true">
+        <input matInput placeholder="Take a Note" [formControl]="description" [(ngModel)]="note.description">
+      </div>
+
+      <br>
+      <div fxLayout="row" fxLayoutGap="10px">
+        <div fxLayout="row" fxLayoutAlign="start">
+          <app-icons></app-icons>
+        </div>
+        <div>
+          <button class="close" mat-icon-button (click)="onClose()" style="margin-left: 240px;
+            padding: 6px;">
+            Close
+          </button>
+        </div>
+      </div>
+    </mat-card>
+  </div>
+</div>
+<div style="margin-top: 35px">
+  <app-displaynote></app-displaynote>
+</div>
