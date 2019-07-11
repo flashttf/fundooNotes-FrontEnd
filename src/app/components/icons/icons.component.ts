@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input} from '@angular/core';
 import { Note } from 'src/app/model/note';
 import { FormControl } from '@angular/forms';
 import { DateReminder } from 'src/app/model/date-reminder';
@@ -14,6 +14,7 @@ import { LabelService } from 'src/services/label.service';
 })
 export class IconsComponent implements OnInit {
 
+  @Input() noteInfo
 
   label:[];
   // note:Note=new Note();
@@ -22,8 +23,6 @@ export class IconsComponent implements OnInit {
  
 
 
-
-  @Input() noteInfo:any;
   
 
   constructor(private snackbar:MatSnackBar,private noteService:NotesService,private dataService:DataService,
@@ -31,6 +30,10 @@ export class IconsComponent implements OnInit {
 
   ngOnInit() {
     this.getAllLabels();
+
+    console.log("===========================",this.noteInfo);
+    
+
   }
 
   onChangeColor(){
@@ -69,7 +72,7 @@ export class IconsComponent implements OnInit {
 
 setColor(color:any){
 console.log(color);
-this.noteService.updateNote("/color?noteId="+this.noteInfo.noteId,color).subscribe(
+this.noteService.updateNote("",color).subscribe(
   (response:any)=>{
     if(response.statusCode==200){
       this.dataService.changeMessage('color');
@@ -100,14 +103,14 @@ onArchive(){
 }
 
 onDelete(){
-  console.log(this.noteInfo.noteId);
+  console.log(this.noteInfo);
   
   this.noteService.deleteNote("note/delete?noteId="+this.noteInfo.noteId).subscribe(
     (response:any)=>{
-      console.log(this.noteInfo);
+      console.log("Note Id="+this.noteInfo);
       
       if(response.statusCode==200){
-        console.log(response);
+        
         this.dataService.changeMessage('delete');
         this.snackbar.open("Note deleted.","close",{duration:2500});
       }else{

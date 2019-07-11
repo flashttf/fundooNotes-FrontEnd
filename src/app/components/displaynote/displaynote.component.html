@@ -5,7 +5,7 @@
     <div fxLayout="row wrap" fxLayoutGap="15px">
       <div *ngFor="let note of notes">
         <div fxLayout="column" fxFlex="90">
-          <!-- *ngIf="note.archive==false && note.trash==false && note.pin==false" -->
+          
           <mat-card class="matcard2">
             <form>
               <div class="noteArea">
@@ -17,6 +17,9 @@
                   <div class="bold">
                     {{note.description}}
                   </div>
+
+                  
+                  
                 </div>
                 <div>
                   <app-labeltonote></app-labeltonote>

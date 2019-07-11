@@ -20,7 +20,7 @@
 
       <div data-text="Take a Note" contenteditable="true">
 
-        <input matInput placeholder="Title" [formControl]="title" [(ngModel)]="note.title">
+        <input matInput placeholder="Title"  [(ngModel)]="note.title">
 
       </div>
 
@@ -28,7 +28,7 @@
       <br>
 
       <div data-text="Take a Note" contenteditable="true">
-        <input matInput placeholder="Take a Note" [formControl]="description" [(ngModel)]="note.description">
+        <input matInput placeholder="Take a Note"  [(ngModel)]="note.description">
       </div>
 
       <br>
@@ -47,5 +47,5 @@
   </div>
 </div>
 <div style="margin-top: 35px">
-  <app-displaynote></app-displaynote>
+  <app-displaynote ></app-displaynote>
 </div>

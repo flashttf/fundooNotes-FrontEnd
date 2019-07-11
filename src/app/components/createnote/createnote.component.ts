@@ -21,9 +21,9 @@ export class CreatenoteComponent implements OnInit {
   note:Note =new Note();
   // notes:any[];
   
-  title=new FormControl(this.note.title);
+  // title=new FormControl(this.note.title);
   
-  description=new FormControl(this.note.description);
+  // description=new FormControl(this.note.description);
   
     constructor(private snackBar:MatSnackBar,private notesService:NotesService,private dataservice:DataService
       ) { }
@@ -37,7 +37,7 @@ export class CreatenoteComponent implements OnInit {
   
     onClose(){
       this.open=false;
-      if(this.note.title!=null||this.note.description!=null){
+      if(this.note.title!=null||this.note.description!=null){0
         console.log(this.note.title);
         this.notesService.createNote(this.note).subscribe(
           (response)=>{

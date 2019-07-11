@@ -29,7 +29,6 @@ export class TrashComponent implements OnInit {
       (Response:any)=>{
         this.notes=Response;
       
-        
       }
     )
   }

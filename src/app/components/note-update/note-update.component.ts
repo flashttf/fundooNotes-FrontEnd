@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Inject } from '@angular/core';
+import { MAT_DIALOG_DATA } from '@angular/material';
 
 @Component({
   selector: 'app-note-update',
@@ -7,9 +8,12 @@ import { Component, OnInit } from '@angular/core';
 })
 export class NoteUpdateComponent implements OnInit {
 
-  constructor() { }
+  constructor(@Inject(MAT_DIALOG_DATA) public data:{noteData:any}) { }
 
+  note=this.data.noteData;
   ngOnInit() {
+    console.log("data",this.data);
+    
   }
 
 }
