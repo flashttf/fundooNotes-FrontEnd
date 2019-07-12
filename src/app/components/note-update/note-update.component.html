@@ -1,9 +1,17 @@
 
-  <div fxLayout="column" fxLayoutAlign="start center"> 
+  <div fxLayout="column" fxLayoutAlign="start start" class="updateNote"> 
     <div class="textArea">
-      <input matInput placeholder="Edit Title" [(ngModel)]="note.title">
+      <textarea matInput placeholder="Edit Title" [formControl]="title"></textarea>
     </div>
     <div>
-      <input matInput placeholder="Edit Description" [(ngModel)]="note.description">
+      <textarea matInput placeholder="Edit Description" [formControl]="description" ></textarea>
     </div>
+    <div>
+      <app-icons></app-icons>
+    </div>
+    
+      <button matButton (click)="onCloseUpdateNote()">
+        Close
+      </button>
+    
   </div>

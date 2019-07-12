@@ -34,12 +34,14 @@ export class DisplaynoteComponent implements OnInit {
 
   onUpdate(note:any):void{
     this.dialog.open(NoteUpdateComponent,{
-        height:'150px',
-        width:'588px',
+        height:'180px',
+        width:'300px',
         data:{
-          'title':note.title,
-          'description':note.description,
-          'id':note.noteId,
+          noteId:note.noteId,
+          title:note.title,
+          description
+          :note.description,
+          
         }
     }
       );
