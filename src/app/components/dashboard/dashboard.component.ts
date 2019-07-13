@@ -8,6 +8,7 @@ import { FormControl } from '@angular/forms';
 import { Router } from '@angular/router';
 import { EditlableComponent } from '../editlable/editlable.component';
 import { BehaviorSubject } from 'rxjs';
+import { HttpServiceService } from 'src/services/http-service.service';
 
 @Component({
   selector: 'app-dashboard',
@@ -24,14 +25,17 @@ export class DashboardComponent implements OnInit {
   appTitle:string;
   constructor(private labelService:LabelService,
     private noteService:NotesService,private dataService:DataService,
-    private router:Router,private dialog:MatDialog) { }
+    private router:Router,private dialog:MatDialog,private httpService:HttpServiceService) { }
 
     open:boolean;
     labels:[];
     data:[];
 
+    image:string
+
     search=new FormControl();
     message:string;
+    profilePicture:any;
 
   ngOnInit() {
     
@@ -40,6 +44,27 @@ export class DashboardComponent implements OnInit {
     // this.getAllLabels();
     this.dataService.currentMessage.subscribe(
       message=>{;this.message=message,this.getAllLabels()}
+    )
+
+    this.httpService.getRequest("users/getImage").subscribe(
+      (response:any)=>{
+
+        this.image=response
+
+//         if(response.statusCode==200){
+//           localStorage.setItem('profilePicture',response);
+//           console.log(response);
+          
+//         }else{
+//           console.log("error pic");
+          
+//         }
+//       }
+// ,
+//       (err)=>{
+// console.log("err",err);
+
+      }
     )
   }
 

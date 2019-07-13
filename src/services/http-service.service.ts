@@ -19,7 +19,7 @@ import { ActivatedRoute } from '@angular/router';
 
   public postRequest(url, data):any {
    
-    return this.http.post(this.baseurl + url, data,{ headers: new HttpHeaders().set("token",localStorage.getItem('token')) });
+    return this.http.post(this.baseurl + url, data);
   }
 
   public putRequest(url: any,data:any): any {

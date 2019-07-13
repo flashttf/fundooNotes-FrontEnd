@@ -36,7 +36,8 @@
       </div>
       <div>
         <div style="margin-right: 10px" class="setting" mat-icon-button>
-          <button mat-button [matMenuTriggerFor]="menu" style="margin-left: 10px ;padding-top: 3%"
+          <button mat-button [matMenuTriggerFor]="menu" 
+            style="margin-left: 10px ;padding-top: 3%"
             class="view" mat-icon-button>
 
             <mat-icon matTooltip="settings">settings</mat-icon>
@@ -62,10 +63,10 @@
           </button>
              </div>
         <div>
-              <button mat-button mat-icon-button  style="margin-left: 10px ;padding-top: 3%" class="accountButton">
-          <mat-icon matTooltip="Account">account_circle</mat-icon>
+              <img   src={{image}} style=" height: 40px;width: 40px;border-radius: 100px;margin-left: 20px;padding-top: 2px" class="accountButton">
+         
           
-        </button>
+       
          </div>
     </mat-toolbar>
     <div>
@@ -110,6 +111,7 @@
         </div>
        
          <div fxFlex="100" fxLayout="column">
+          
           
           <div *ngFor="let data of labels">
               
