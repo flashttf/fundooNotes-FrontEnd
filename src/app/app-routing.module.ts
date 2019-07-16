@@ -17,6 +17,7 @@ import { ArchiveComponent } from './components/archive/archive.component';
 import { TrashComponent } from './components/trash/trash.component';
 import { combineLatest } from 'rxjs';
 import { DisplaynoteComponent } from './components/displaynote/displaynote.component';
+import { SearchComponent } from './components/search/search.component';
  
 const routes: Routes = [
    
@@ -62,6 +63,10 @@ const routes: Routes = [
             component:ArchiveComponent
           },
           
+          {
+            path:'search',
+            component:SearchComponent
+          }
           
     ]
   },

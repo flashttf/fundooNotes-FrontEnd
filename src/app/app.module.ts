@@ -41,6 +41,8 @@ import { LabeltonoteComponent } from './components/labeltonote/labeltonote.compo
 import { NoteUpdateComponent } from './components/note-update/note-update.component';
 import { HttpServiceService } from 'src/services/http-service.service';
 import { PinComponent } from './components/pin/pin.component';
+import { SearchComponent } from './components/search/search.component';
+import { GetlabelComponent } from './components/getlabel/getlabel.component';
 
 
 
@@ -71,6 +73,10 @@ import { PinComponent } from './components/pin/pin.component';
     NoteUpdateComponent,
   
     PinComponent,
+  
+    SearchComponent,
+  
+    GetlabelComponent,
   
    
 

@@ -16,12 +16,12 @@ export class LabelService {
     return this.httpService.postRequest("label/create",data);
   }
 
-  public updateLabel(data:any):any{
-    return this.httpService.putRequest("label/update",data);
-  }
+  public updateLabel(url:any,data:any):any{
+    return this.httpService.putRequest(url,data);
+  } 
 
-  public deleteLabel():any{
-    return this.httpService.deleteRequest("label/delete");
+  public deleteLabel(url:any):any{
+    return this.httpService.deleteRequest(url);
   }
 
   public displayLabels():any {

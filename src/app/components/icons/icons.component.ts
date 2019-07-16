@@ -130,7 +130,7 @@ datePicker(){
 
 
   addLabel(labels:any){
-    console.log(labels);
+    
     
   }
 

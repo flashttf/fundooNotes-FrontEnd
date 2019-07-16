@@ -23,6 +23,10 @@ export class DashboardComponent implements OnInit {
  
 
   appTitle:string;
+
+  private searchNotes=new BehaviorSubject([]);
+  currentMessage=this.searchNotes.asObservable();
+
   constructor(private labelService:LabelService,
     private noteService:NotesService,private dataService:DataService,
     private router:Router,private dialog:MatDialog,private httpService:HttpServiceService) { }
@@ -51,28 +55,22 @@ export class DashboardComponent implements OnInit {
 
         this.image=response
 
-//         if(response.statusCode==200){
-//           localStorage.setItem('profilePicture',response);
-//           console.log(response);
-          
-//         }else{
-//           console.log("error pic");
-          
-//         }
-//       }
-// ,
-//       (err)=>{
-// console.log("err",err);
-
       }
     )
   }
 
   onSearch(){
-    
+    this.noteService.findByTitle("note/findByTitle?title="+this.search.value).subscribe(
+      (response:any)=>{
+        this.searchNotes.next(response);
+        this.router.navigate(['dashboard/search'])
+        
+      }
+    )
   }
 
   
+
   getAllLabels() {
     this.labelService.displayLabels().subscribe(
       (Response:any)=>{
@@ -93,16 +91,18 @@ export class DashboardComponent implements OnInit {
 }
 
 openDialogLabel():void{
-  console.log("label",this.labels);
+  
   
     this.dialog.open(EditlableComponent,
     {
       height:'300px',
       width:'250px',
     });
+   
 }
 
-onAccount(){
+
+onAccountMenu(){
   this.open=true;
 }
 

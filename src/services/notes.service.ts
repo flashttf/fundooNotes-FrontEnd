@@ -11,6 +11,7 @@ import { Note } from 'src/app/model/note';
 })
 export class NotesService {
   
+  
   note:Note=new Note();
 
   constructor(private httpservice:HttpServiceService) { }
@@ -41,6 +42,10 @@ export class NotesService {
 
    public addLabelToNote(url,data) {
     return this.httpservice.putRequest(url,data);  
+  }
+
+  public findByTitle(url:any) {
+   return this.httpservice.getRequest(url);
   }
    
   

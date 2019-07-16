@@ -18,16 +18,19 @@ export class EditlableComponent implements OnInit {
   message:string;
   
   labelName=new FormControl(this.label.labelName);
+  data: any;
 
   constructor(private snackbar:MatSnackBar,private labelService:LabelService,
     private dataService:DataService) { }
 
   ngOnInit() {
+    this.getAllLabels();
+   
   }
 
   onClose(){
     if(this.label.labelName!=null){
-      this.labelService.updateLabel(this.label).subscribe(
+      this.labelService.createLabel(this.label).subscribe(
       (Response:any)=>{
         if(Response.statusCode==200){
           this.dataService.changeMessage("label");
@@ -43,4 +46,16 @@ export class EditlableComponent implements OnInit {
       this.snackbar.open("Label Cannot Be Empty","close",{duration:2500})
     }
   }
+  getAllLabels() {
+    this.labelService.displayLabels().subscribe(
+      (Response:any)=>{
+      
+        
+        this.labels=Response;
+        console.log("labels on dashboard-->",Response);
+       
+      }
+    )
+  }
+
 }

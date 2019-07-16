@@ -1,0 +1,23 @@
+<div fxLayout="row" fxFlex="100" class="side">
+  <div fxLayout="row" fxFlex=80 fxLayout="row wrap">
+    <div *ngFor="let noteone of data">
+      <mat-card  class=search>
+        <form>
+          <div class="text">
+            <div>
+              {{noteone.title}}
+            </div>
+            <br>
+            <div>
+              {{noteone.description}}
+            </div>
+          </div>
+          <app-labeltonote ></app-labeltonote>
+          <div >
+            <app-icons [noteInfo]=noteone></app-icons>
+          </div>
+        </form>
+      </mat-card>
+    </div>
+</div>
+</div>
