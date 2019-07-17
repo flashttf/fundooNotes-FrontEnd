@@ -15,7 +15,7 @@ import { LabelComponent } from './components/label/label.component';
 import { EditlableComponent } from './components/editlable/editlable.component';
 import { ArchiveComponent } from './components/archive/archive.component';
 import { TrashComponent } from './components/trash/trash.component';
-import { combineLatest } from 'rxjs';
+
 import { DisplaynoteComponent } from './components/displaynote/displaynote.component';
 import { SearchComponent } from './components/search/search.component';
  

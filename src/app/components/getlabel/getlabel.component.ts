@@ -10,7 +10,7 @@ import { DataService } from 'src/services/data.service';
 })
 export class GetlabelComponent implements OnInit {
 
-  label:[];
+  labels:[];
   message:string;
 
   constructor(private snackbar:MatSnackBar,private labelService:LabelService,
@@ -25,7 +25,7 @@ export class GetlabelComponent implements OnInit {
   getAllLabels(){
     this.labelService.displayLabels().subscribe(
       (response:any)=>{
-        this.label=response;
+        this.labels=response;
       }
     )
   }

@@ -41,7 +41,11 @@ export class NotesService {
     }
 
    public addLabelToNote(url,data) {
-    return this.httpservice.putRequest(url,data);  
+    return this.httpservice.postRequest(url,'');  
+  }
+
+  public deleteLabelFromNote(url){
+    return this.httpservice.deleteRequest(url);
   }
 
   public findByTitle(url:any) {

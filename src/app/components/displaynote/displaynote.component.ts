@@ -16,12 +16,15 @@ export class DisplaynoteComponent implements OnInit {
     private dataService:DataService,public dialog:MatDialog) { }
 
       message:string;
+      
   ngOnInit() {
     this.dataService.currentMessage.subscribe(
       message=>{this.message=message,this.getAllNotes()}
     )
-    // this.getAllNotes();
+   
   }
+
+
   getAllNotes() {
     this.noteService.getNotes().subscribe(
       (Response:any)=>{
@@ -39,8 +42,7 @@ export class DisplaynoteComponent implements OnInit {
         data:{
           noteId:note.noteId,
           title:note.title,
-          description
-          :note.description,
+          description:note.description,
           
         }
     }

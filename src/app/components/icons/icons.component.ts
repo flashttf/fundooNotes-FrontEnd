@@ -129,8 +129,20 @@ datePicker(){
 }
 
 
-  addLabel(labels:any){
+  addLabel(label:any){
+    console.log("label id",label.labelId
+    );
     
+    this.noteService.addLabelToNote("note/AddLabelToNote?labelId="+label.labelId+"&noteId="+this.noteInfo.noteId,'').subscribe(
+      (response:any)=>{
+        if(response.statusCode==200){
+          this.dataService.changeMessage("Label added to note");
+          this.snackbar.open(response.statusMessage,"close",{duration:2500});
+        }else{
+          this.snackbar.open(response.statusMessage,"close",{duration:2500});
+        }
+      }
+    )
     
   }
 

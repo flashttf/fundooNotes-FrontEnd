@@ -54,7 +54,7 @@
         <button mat-button [matMenuTriggerFor]="menuApps" style="margin-left: 10px ;padding-top: 3%" class="view"
           mat-icon-button>
 
-          <mat-icon matTooltip="appearance" matTooltip="apps">apps</mat-icon>
+          <mat-icon  matTooltip="apps">apps</mat-icon>
           <mat-menu #menuApps="matMenu">
 
             <button mat-menu-item>Gmail</button>
@@ -63,11 +63,21 @@
           </button>
              </div>
         <div>
-              <img   src={{image}} style=" height: 40px;width: 40px;border-radius: 100px;margin-left: 20px;padding-top: 2px" class="accountButton">
-         
+          <button mat-icon-button [matMenuTriggerFor]="accountMenu25" class="profileButton" >
+            
+              <img   src={{image}} style=" height: 40px;width: 40px;border-radius: 100px;margin-left: 2px" class="accountButton">
+            
+            </button>
           
        
          </div>
+         <mat-menu #accountMenu25="matMenu">
+            <div fxLayout="column">
+                <button mat-menu-item  routerLink="/login"  (click)="onLogout()"> 
+                    Logout
+                </button>
+            </div>
+         </mat-menu>
     </mat-toolbar>
     <div>
       <div>
@@ -89,8 +99,8 @@
   </div>
 
       <mat-sidenav-container fxFlexFill class="sidenavbar">
-        <mat-sidenav  #sidenav mode='side'>
-       <mat-nav-list fxLayout="column">
+        <mat-sidenav  #sidenav mode='side'  >
+       <mat-nav-list fxLayout="column" >
          <div class="notes" fxFlex="100" fxLayout="row">
           <button class="sidenav" mat-button (click)="onNote()">
              <mat-icon matTooltip="Create Notes">lightbulb_outline</mat-icon> Notes

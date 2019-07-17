@@ -17,101 +17,106 @@ import { HttpServiceService } from 'src/services/http-service.service';
 })
 export class DashboardComponent implements OnInit {
 
-  showFiller=false;
-  
-  appHeadTitle:string;
- 
+  showFiller = false;
 
-  appTitle:string;
+  appHeadTitle: string;
 
-  private searchNotes=new BehaviorSubject([]);
-  currentMessage=this.searchNotes.asObservable();
 
-  constructor(private labelService:LabelService,
-    private noteService:NotesService,private dataService:DataService,
-    private router:Router,private dialog:MatDialog,private httpService:HttpServiceService) { }
+  appTitle: string;
 
-    open:boolean;
-    labels:[];
-    data:[];
+  private searchNotes = new BehaviorSubject([]);
+  currentMessage = this.searchNotes.asObservable();
 
-    image:string
+  constructor(private labelService: LabelService,
+    private noteService: NotesService, private dataService: DataService,
+    private router: Router, private dialog: MatDialog, private httpService: HttpServiceService) { }
 
-    search=new FormControl();
-    message:string;
-    profilePicture:any;
+  open: boolean;
+  labels: [];
+  data: [];
+
+  image: string
+
+  search = new FormControl();
+  message: string;
+  profilePicture: any;
 
   ngOnInit() {
-    
-    this.appTitle="FundooNotes";
+
+    this.appTitle = "FundooNotes";
 
     // this.getAllLabels();
     this.dataService.currentMessage.subscribe(
-      message=>{;this.message=message,this.getAllLabels()}
+      message => { ; this.message = message, this.getAllLabels() }
     )
 
     this.httpService.getRequest("users/getImage").subscribe(
-      (response:any)=>{
+      (response: any) => {
 
-        this.image=response
+        this.image = response
 
       }
     )
   }
 
-  onSearch(){
-    this.noteService.findByTitle("note/findByTitle?title="+this.search.value).subscribe(
-      (response:any)=>{
+  onSearch() {
+    this.noteService.findByTitle("note/findByTitle?title=" + this.search.value).subscribe(
+      (response: any) => {
         this.searchNotes.next(response);
         this.router.navigate(['dashboard/search'])
-        
+
       }
     )
   }
 
-  
+
 
   getAllLabels() {
     this.labelService.displayLabels().subscribe(
-      (Response:any)=>{
-      
-        
-        this.labels=Response;
-        console.log("labels on dashboard-->",this.data);
-       
+      (Response: any) => {
+
+
+        this.labels = Response;
+        console.log("labels on dashboard-->", this.data);
+
       }
     )
   }
-  
-  
+
+
 
   onNote() {
     this.appTitle = "Note";
     this.router.navigate(['dashboard/note']);
-}
+  }
 
-openDialogLabel():void{
-  
-  
+  openDialogLabel(): void {
+
+
     this.dialog.open(EditlableComponent,
-    {
-      height:'300px',
-      width:'250px',
-    });
-   
-}
+      {
+        height: '300px',
+        width: '250px',
+      });
+      
+  }
 
 
-onAccountMenu(){
-  this.open=true;
-}
+  onAccountMenu() {
+    this.open = true;
+  }
 
-onArchive(){
-  this.router.navigate(['dashboard/archive'])
-}
+  onArchive() {
+    this.router.navigate(['dashboard/archive'])
+  }
 
-onTrash(){
-  this.router.navigate(['dashboard/trash'])
-}
+  onTrash() {
+    this.router.navigate(['dashboard/trash'])
+  }
+
+  onLogout() {
+    localStorage.removeItem('token');
+    localStorage.removeItem('email');
+  }
 
 }

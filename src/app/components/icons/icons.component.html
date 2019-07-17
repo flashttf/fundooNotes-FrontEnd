@@ -1,3 +1,13 @@
+<!-- <div >
+  <mat-chip-list>
+    <mat-chip class="chip" *ngFor="let labels of label">
+            {{labels.labelName}}
+    <mat-icon matChipRemove (click)="onDelete(label)">close</mat-icon>
+    </mat-chip>
+</mat-chip-list>
+</div> -->
+
+
 <div fxLayout="row"  fxLayoutAlign="center center">
   <button mat-icon-button (click)="onRemind()" [matMenuTriggerFor]="menu3">
     <mat-icon matTooltip="Remind me"> add_alert</mat-icon>
@@ -42,7 +52,7 @@
       </div>
 
       <div>
-        <button mat-icon-button [matMenuTriggerFor]="menu">Add Label</button>
+          <button mat-menu-item [matMenuTriggerFor]="menu">Add Label</button>
       </div>
     </mat-menu>
   </div>

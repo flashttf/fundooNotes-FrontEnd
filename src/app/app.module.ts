@@ -105,7 +105,8 @@ import { GetlabelComponent } from './components/getlabel/getlabel.component';
     MatSidenavModule,
     MatListModule,
     MatChipsModule,
-    MatDatepickerModule
+    MatDatepickerModule,
+    
  ],
   providers: [HttpServiceService],
   entryComponents:[
