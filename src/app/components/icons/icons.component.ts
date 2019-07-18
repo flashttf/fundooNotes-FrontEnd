@@ -1,7 +1,5 @@
 import { Component, OnInit, Input} from '@angular/core';
-import { Note } from 'src/app/model/note';
-import { FormControl } from '@angular/forms';
-import { DateReminder } from 'src/app/model/date-reminder';
+
 import { MatSnackBar, MatDialog } from '@angular/material';
 import { NotesService } from 'src/services/notes.service';
 import { DataService } from 'src/services/data.service';
@@ -15,8 +13,10 @@ import { LabelService } from 'src/services/label.service';
 export class IconsComponent implements OnInit {
 
   @Input() noteInfo
+  // @Input() labelInfo
 
   label:[];
+  noteLabel:[]
   // note:Note=new Note();
   toggle:boolean= true;
   message:string;
@@ -30,10 +30,22 @@ export class IconsComponent implements OnInit {
 
   ngOnInit() {
     this.getAllLabels();
+    this.getLabelsOfNote();
+    
 
     console.log("===========================",this.noteInfo);
     
 
+  }
+
+  getLabelsOfNote(){
+    this.noteService.getNoteLabels("note/getNoteLabels?noteId="+this.noteInfo.noteId).subscribe(
+      (response:any)=>{
+        console.log("Label of Given Note++"+response);
+        this.noteLabel=response;
+        
+      }
+    )
   }
 
   onChangeColor(){
@@ -81,10 +93,27 @@ this.noteService.updateNote("",color).subscribe(
       this.snackbar.open("Note Color set.","close",{duration:2500});
       
     }else{
-      this.snackbar.open("Couldnt Set NoteColor.Somethings Wrong","close",{duration:2500});
+      this.snackbar.open("Something is Wrong","close",{duration:2500});
     }
   }
 )
+}
+
+onDeleteLabelFromNote(label1:any){
+  this.noteService
+  .deleteLabelFromNote
+  ("note/RemoveLabelToNote?labelId="+this.noteInfo.labelId+"&noteId="+this.noteInfo.noteId)
+  .subscribe(
+    (response:any)=>{
+      if(response.statusCode==200){
+        this.dataService.changeMessage('Label deleted from note');
+        this.snackbar.open("Label removed","close",{duration:2500})
+      }
+      else{
+        this.snackbar.open("Label Not removed","close",{duration:2500});
+      }
+    }
+  )
 }
 
 onArchive(){
@@ -93,7 +122,7 @@ onArchive(){
       console.log(this.noteInfo.noteId);
       
       if(response.statusCode==200){
-        this.dataService.changeMessage('archive');
+        this.dataService.changeMessage('note archived');
         this.snackbar.open("Note archived","undo",{duration:2500});
       }else{
         this.snackbar.open("Note archive failed","undo",{duration:2500});
@@ -121,7 +150,7 @@ onDelete(){
   )
 }
 
-labels:[]
+// labels:[]
 
 datePicker(){
   console.log("Remiender set");
@@ -129,11 +158,11 @@ datePicker(){
 }
 
 
-  addLabel(label:any){
-    console.log("label id",label.labelId
+  addLabel(labels:any){
+    console.log("label id",labels.labelId
     );
     
-    this.noteService.addLabelToNote("note/AddLabelToNote?labelId="+label.labelId+"&noteId="+this.noteInfo.noteId,'').subscribe(
+    this.noteService.addLabelToNote("note/AddLabelToNote?labelId="+labels.labelId+"&noteId="+this.noteInfo.noteId,'').subscribe(
       (response:any)=>{
         if(response.statusCode==200){
           this.dataService.changeMessage("Label added to note");

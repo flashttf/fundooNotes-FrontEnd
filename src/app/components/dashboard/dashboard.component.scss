@@ -1,37 +1,39 @@
 
+
+
  .notes .sidenav{
-   width: 300px;
- }
+  width: 300px;
+}
 
- mat-sidenav{
-   width: 290px;
-   overflow: hidden;
- }
+mat-sidenav{
+  width: 290px;
+  overflow: hidden;
+}
 
- .sidenav mat-icon{
-   margin-left: -196px;
- }
+.sidenav mat-icon{
+  margin-left: -196px;
+}
 
- .sidenavre mat-icon{
-  margin-left: -167px;
- }
+.sidenavre mat-icon{
+ margin-left: -167px;
+}
 
- .reminder .sidenavre{
-   width: 300px;
+.reminder .sidenavre{
+  width: 300px;
 }
 
 .menu-spacer {
-  flex: 1 1 auto;
+ flex: 1 1 auto;
 }
 
 .content{
-  background-color: white;
-  overflow: hidden;
+ background-color: white;
+ overflow: hidden;
 }
 
 .sidenavbar{
-  height: 500px;
-  overflow: hidden;
+ height: 500px;
+ overflow: hidden;
 }
 
 // .profileButton{
@@ -43,8 +45,8 @@
 // }
 
 .mat-mini-fab .mat-button-wrapper {
-  padding: 0px 0;
-  display: inline-block;
-  line-height: 24px;
-  margin-left: -3px;
+ padding: 0px 0;
+ display: inline-block;
+ line-height: 24px;
+ margin-left: -3px;
 }

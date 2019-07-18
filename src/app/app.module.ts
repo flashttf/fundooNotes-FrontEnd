@@ -37,7 +37,7 @@ import { EditlableComponent } from './components/editlable/editlable.component';
 import { ArchiveComponent } from './components/archive/archive.component';
 import { TrashComponent } from './components/trash/trash.component';
 import { DisplaynoteComponent } from './components/displaynote/displaynote.component';
-import { LabeltonoteComponent } from './components/labeltonote/labeltonote.component';
+
 import { NoteUpdateComponent } from './components/note-update/note-update.component';
 import { HttpServiceService } from 'src/services/http-service.service';
 import { PinComponent } from './components/pin/pin.component';
@@ -68,7 +68,7 @@ import { GetlabelComponent } from './components/getlabel/getlabel.component';
   
     DisplaynoteComponent,
   
-    LabeltonoteComponent,
+    
   
     NoteUpdateComponent,
   
@@ -112,7 +112,6 @@ import { GetlabelComponent } from './components/getlabel/getlabel.component';
   entryComponents:[
     NoteUpdateComponent,
     EditlableComponent,
-    
   ],
   bootstrap: [AppComponent]
 })

@@ -1,11 +1,12 @@
-<!-- <div >
+<div>
   <mat-chip-list>
-    <mat-chip class="chip" *ngFor="let labels of label">
+    <mat-chip  class="chip" *ngFor="let labels of noteLabel">
+     
             {{labels.labelName}}
-    <mat-icon matChipRemove (click)="onDelete(label)">close</mat-icon>
+    <mat-icon matChipRemove style="font-size: 15px" (click)="onDeleteLabelFromNote(label)">close</mat-icon>
     </mat-chip>
 </mat-chip-list>
-</div> -->
+</div>
 
 
 <div fxLayout="row"  fxLayoutAlign="center center">

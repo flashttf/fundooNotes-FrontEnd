@@ -12,6 +12,7 @@ import { Note } from 'src/app/model/note';
 export class NotesService {
   
   
+  
   note:Note=new Note();
 
   constructor(private httpservice:HttpServiceService) { }
@@ -52,5 +53,13 @@ export class NotesService {
    return this.httpservice.getRequest(url);
   }
    
+ public getNoteLabels(url) {
+    return this.httpservice.getRequest(url);
+  }
+
+ public getArchiveNotes(url):any {
+   this.httpservice.getRequest(url);
+  }
+  
   
 }

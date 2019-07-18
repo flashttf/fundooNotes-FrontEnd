@@ -33,7 +33,7 @@ import { ActivatedRoute } from '@angular/router';
     return this.http.delete(this.baseurl + url,{ headers: new HttpHeaders().set("token", localStorage.getItem('token')||'') });
   }
 
-  public getRequest(url) {
+  public getRequest(url):any {
     return this.http.get(this.baseurl + url, { headers: new HttpHeaders().set("token", localStorage.getItem('token')||'') });
   }
 

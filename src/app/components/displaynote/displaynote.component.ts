@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { MatSnackBar, MatDialog } from '@angular/material';
 import { NotesService } from 'src/services/notes.service';
 import { DataService } from 'src/services/data.service';
@@ -10,6 +10,8 @@ import { NoteUpdateComponent } from '../note-update/note-update.component';
   styleUrls: ['./displaynote.component.scss']
 })
 export class DisplaynoteComponent implements OnInit {
+
+  @Input() noteInfo
   notes : any[]
 
   constructor(private snackbar:MatSnackBar,private noteService:NotesService,

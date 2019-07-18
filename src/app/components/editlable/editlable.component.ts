@@ -25,7 +25,6 @@ export class EditlableComponent implements OnInit {
 
   ngOnInit() {
     this.getAllLabels();
-   
   }
 
   onClose(){
