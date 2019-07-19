@@ -9,12 +9,14 @@ import { DashboardComponent } from '../dashboard/dashboard.component';
 export class SearchComponent implements OnInit {
 
   data:any;
+  color:any;
   constructor(private dashboard:DashboardComponent) { }
 
   ngOnInit() {
     this.dashboard.currentMessage.subscribe(
       (response)=>{
         this.data=response;
+        
       }
     )
   }

@@ -4,9 +4,10 @@
 
     <div fxLayout="row wrap" fxLayoutGap="15px">
       <div *ngFor="let note of notes">
-        <div fxLayout="column" fxFlex="90" class="display">
+        <div *ngIf="note.archive==false">
+        <div fxLayout="column" fxFlex="90" class="display" >
 
-          <mat-card class="matcard2">
+          <mat-card class="matcard2" [ngStyle]="{'background-color':note.colorCode}" >
             <form>
               <div class="noteArea">
                 <div (click)="onUpdate(note)" style="overflow: hidden">
@@ -31,6 +32,7 @@
         </div>
       </div>
     </div>
+  </div>
 
   </div>
   <!-- </div> -->

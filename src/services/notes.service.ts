@@ -13,19 +13,18 @@ export class NotesService {
   
   
   
+  
   note:Note=new Note();
 
   constructor(private httpservice:HttpServiceService) { }
 
 
     public createNote(data){
-      console.log("Hitting Note Service");
       
      return this.httpservice.postRequest("note/create",data);
     }
 
     public updateNote(url:any,data:any):any{                                                                     
-      console.log("Hitting Note Service");
       return this.httpservice.putRequest(url,data);
     }
 
@@ -58,8 +57,11 @@ export class NotesService {
   }
 
  public getArchiveNotes(url):any {
-   this.httpservice.getRequest(url);
+  return this.httpservice.getRequest(url);
   }
   
+  setNoteColor(url:any,data:any):any {
+   return this.httpservice.putRequest(url,data);
+  }
   
 }

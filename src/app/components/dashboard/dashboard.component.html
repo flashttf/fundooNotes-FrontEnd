@@ -98,7 +98,7 @@
   
   </div>
 
-      <mat-sidenav-container fxFlexFill class="sidenavbar">
+      <mat-sidenav-container  fxFlexFill class="sidenavbar">
         <mat-sidenav  #sidenav mode='side'  >
        <mat-nav-list fxLayout="column" >
          <div class="notes" fxFlex="100" fxLayout="row">
@@ -121,11 +121,11 @@
         </div>
        
          <div fxFlex="100" fxLayout="column">
-          
+            <!-- <app-displaylabels></app-displaylabels> -->
           
           <div *ngFor="let data of labels">
               
-             <button class="displayLabel" mat-button>
+             <button class="displayLabel" mat-button (click)="onUpdateLabel(data)">
           
                <img src="../../../assets/label.svg">
   

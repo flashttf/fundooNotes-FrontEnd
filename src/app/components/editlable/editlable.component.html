@@ -1,8 +1,23 @@
-<h3>Edit Labels</h3>
+<div fxLayout="column" fxLayoutAlign="center center" class="titleBar">
+<h5 style="margin-left: -38px">Edit Labels</h5>
+</div>
 <div fxLayout="column" fxLayoutAlign="center center">
-  <mat-form-field>
-    <input matInput placeholder="Enter labelName" [formControl]=labelName [(ngModel)]="label.labelName">
+  <mat-form-field style="width: 100px"> 
+    <input matInput placeholder="Create new label" [formControl]=labelName [(ngModel)]="label.labelName">
   </mat-form-field>
+  <div>
+      <div *ngFor="let data of labels">
+              
+          <button class="displayLabel" mat-button (click)="onUpdateLabel(data)">
+       
+            <img src="../../../assets/label.svg">
+
+           {{data.labelName}}
+           <br>
+   
+         </button>
+       </div>
+  </div>
 
   <div class="close">
     <button mat-raised-button (click)="onClose()">

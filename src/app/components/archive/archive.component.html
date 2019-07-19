@@ -1,32 +1,32 @@
 <div style="margin-top:25px">
-<div fxLayoutAlign="center center" fxFlex="100" class="displayNote" fxLayout="row">
-        <!-- <div fxLayout="row"> -->
-        <div fxLayout="column" fxFlex="85" fxLayoutGap="30px">
-      
-          <div fxLayout="row wrap" fxLayoutGap="15px">
-        <div *ngFor="let note of notes">
-            <div *ngIf="note.archive==true">
-                <mat-card  fxFlex="90" style="margin-top:16px;">
-                    <form>
-                        <div class="displayedNote" >
-                        <div>
-                            {{note.title}}
-                        </div>
-                        <br>
-                        <div>
-                            {{note.description}}
-                        </div>
+        <div fxLayoutAlign="center center" fxFlex="100" class="displayNote" fxLayout="row">
+                <!-- <div fxLayout="row"> -->
+                <div fxLayout="column" fxFlex="85" fxLayoutGap="30px">
+              
+                  <div fxLayout="row wrap" fxLayoutGap="15px">
+                <div *ngFor="let note of notes">
+                    <div *ngIf="note.archive==true">
+                        <mat-card  fxFlex="90" style="margin-top:16px;" [ngStyle]="{'background-color':note.colorCode}">
+                            <form>
+                                <div class="displayedNote" >
+                                <div>
+                                    {{note.title}}
+                                </div>
+                                <br>
+                                <div>
+                                    {{note.description}}
+                                </div>
+                            </div>
+                            <!-- <app-labeltonote></app-labeltonote> -->
+                            <div>
+                                <app-icons [noteInfo]=note></app-icons>
+                            </div>
+                            </form>
+                        </mat-card>
                     </div>
-                    <!-- <app-labeltonote></app-labeltonote> -->
-                    <div>
-                        <app-icons [noteInfo]=note></app-icons>
-                    </div>
-                    </form>
-                </mat-card>
+                </div>
             </div>
+        
         </div>
-    </div>
-
-</div>
-</div>
-</div>
+        </div>
+        </div>

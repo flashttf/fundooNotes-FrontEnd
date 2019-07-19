@@ -77,7 +77,7 @@ export class DashboardComponent implements OnInit {
 
 
         this.labels = Response;
-        console.log("labels on dashboard-->", this.data);
+        // console.log("labels on dashboard-->", this.data);
 
       }
     )
@@ -95,8 +95,8 @@ export class DashboardComponent implements OnInit {
 
     this.dialog.open(EditlableComponent,
       {
-        height: '300px',
-        width: '250px',
+        height: '250px',
+        width: '180px',
       });
       
   }

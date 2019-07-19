@@ -3,7 +3,7 @@
     <mat-chip  class="chip" *ngFor="let labels of noteLabel">
      
             {{labels.labelName}}
-    <mat-icon matChipRemove style="font-size: 15px" (click)="onDeleteLabelFromNote(label)">close</mat-icon>
+    <mat-icon matChipRemove style="font-size: 15px" (click)="onDeleteLabelFromNote(labels)">close</mat-icon>
     </mat-chip>
 </mat-chip-list>
 </div>
@@ -18,7 +18,7 @@
     <mat-icon matTooltip="Collaborate">person_add</mat-icon>
   </button>
 
-  <button mat-icon-button (click)="onChangeColor()" [matMenuTriggerFor]="colorMenu">
+  <button mat-icon-button [matMenuTriggerFor]="colorMenu">
     <mat-icon matTooltip="Change Color">color_lens</mat-icon>
   </button>
 

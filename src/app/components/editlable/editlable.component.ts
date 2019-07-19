@@ -1,10 +1,11 @@
 import { Component, OnInit } from '@angular/core';
 import { Label } from 'src/app/model/label';
 import { FormControl } from '@angular/forms';
-import { MatSnackBar } from '@angular/material';
+import { MatSnackBar, MatDialog } from '@angular/material';
 import { LabelService } from 'src/services/label.service';
   
 import { DataService } from 'src/services/data.service';
+import { UpdateLabelComponent } from '../update-label/update-label.component';
 
 @Component({
   selector: 'app-editlable',
@@ -21,7 +22,7 @@ export class EditlableComponent implements OnInit {
   data: any;
 
   constructor(private snackbar:MatSnackBar,private labelService:LabelService,
-    private dataService:DataService) { }
+    private dataService:DataService,private dialogBox:MatDialog) { }
 
   ngOnInit() {
     this.getAllLabels();
@@ -41,9 +42,8 @@ export class EditlableComponent implements OnInit {
       }
       )
     }
-    else{
-      this.snackbar.open("Label Cannot Be Empty","close",{duration:2500})
-    }
+   
+    this.dialogBox.closeAll();
   }
   getAllLabels() {
     this.labelService.displayLabels().subscribe(
@@ -57,4 +57,16 @@ export class EditlableComponent implements OnInit {
     )
   }
 
+  onUpdateLabel(data:any){
+    this.dialogBox.open(UpdateLabelComponent,
+      {
+        height:"250px",
+        width:"180px",
+        data:{
+          labelId:data.labelId
+        }
+      })
+    
+      
+  }
 }

@@ -1,16 +1,17 @@
-import { Component, OnInit, Input } from '@angular/core';
-import { MatSnackBar, MatDialog } from '@angular/material';
-import { NotesService } from 'src/services/notes.service';
-import { DataService } from 'src/services/data.service';
+import { Component, OnInit } from '@angular/core';
 import { NoteUpdateComponent } from '../note-update/note-update.component';
+import { DataService } from 'src/services/data.service';
+import { MatDialog, MatSnackBar } from '@angular/material';
+import { NotesService } from 'src/services/notes.service';
 
 @Component({
-  selector: 'app-displaynote',
-  templateUrl: './displaynote.component.html',
-  styleUrls: ['./displaynote.component.scss']
+  selector: 'app-notesonly',
+  templateUrl: './notesonly.component.html',
+  styleUrls: ['./notesonly.component.scss']
 })
-export class DisplaynoteComponent implements OnInit {
+export class NotesonlyComponent implements OnInit {
 
+  
   
   notes : any[]
 Color:any;

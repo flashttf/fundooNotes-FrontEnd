@@ -43,6 +43,8 @@ import { HttpServiceService } from 'src/services/http-service.service';
 import { PinComponent } from './components/pin/pin.component';
 import { SearchComponent } from './components/search/search.component';
 import { GetlabelComponent } from './components/getlabel/getlabel.component';
+import { UpdateLabelComponent } from './components/update-label/update-label.component';
+import { NotesonlyComponent } from './components/notesonly/notesonly.component';
 
 
 
@@ -78,6 +80,12 @@ import { GetlabelComponent } from './components/getlabel/getlabel.component';
   
     GetlabelComponent,
   
+    UpdateLabelComponent,
+  
+    NotesonlyComponent,
+  
+   
+  
    
 
 
@@ -112,6 +120,7 @@ import { GetlabelComponent } from './components/getlabel/getlabel.component';
   entryComponents:[
     NoteUpdateComponent,
     EditlableComponent,
+    UpdateLabelComponent,
   ],
   bootstrap: [AppComponent]
 })

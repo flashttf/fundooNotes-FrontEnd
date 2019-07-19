@@ -1,0 +1,39 @@
+<div fxLayoutAlign="center center" fxFlex="100" class="displayNote" fxLayout="row">
+    <!-- <div fxLayout="row"> -->
+    <div fxLayout="column" fxFlex="85" fxLayoutGap="30px">
+  
+      <div fxLayout="row wrap" fxLayoutGap="15px">
+        <div *ngFor="let note of notes">
+          <div *ngIf="note.archive==false">
+          <div fxLayout="column" fxFlex="90" class="display" >
+  
+            <mat-card class="matcard2" [ngStyle]="{'background-color':note.colorCode}" >
+              <form>
+                <div class="noteArea">
+                  <div (click)="onUpdate(note)" style="overflow: hidden">
+                    <div class="bold">
+                      {{note.title}}
+                    </div>
+                    <br>
+                    <div class="bold">
+                      {{note.description}}
+                    </div>
+                  </div>
+                  <div>
+  
+                  </div>
+  
+                  <div>
+                    <app-icons [noteInfo]=note></app-icons>
+                  </div>
+                </div>
+              </form>
+            </mat-card>
+          </div>
+        </div>
+      </div>
+    </div>
+  
+    </div>
+    <!-- </div> -->
+  </div>

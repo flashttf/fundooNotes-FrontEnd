@@ -18,6 +18,7 @@ import { TrashComponent } from './components/trash/trash.component';
 
 import { DisplaynoteComponent } from './components/displaynote/displaynote.component';
 import { SearchComponent } from './components/search/search.component';
+import { NotesonlyComponent } from './components/notesonly/notesonly.component';
  
 const routes: Routes = [
    
@@ -55,7 +56,7 @@ const routes: Routes = [
          
           {
             path:'note',
-            component:DisplaynoteComponent
+            component:NotesonlyComponent
           },
           
           {
@@ -66,6 +67,10 @@ const routes: Routes = [
           {
             path:'search',
             component:SearchComponent
+          },
+          {
+            path:'trash',
+            component:TrashComponent
           }
           
     ]
@@ -73,12 +78,9 @@ const routes: Routes = [
   {
     path:"label/:token",
     component:LabelComponent
-  },
-  
-  {
-    path:'trash',
-    component:TrashComponent
   }
+  
+  
 ];
 
 @NgModule({
