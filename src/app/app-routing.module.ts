@@ -10,9 +10,9 @@ import { DashboardComponent } from './components/dashboard/dashboard.component';
 import { ResetpasswordComponent } from './components/resetpassword/resetpassword.component';
 // import { AuthGuardServiceService } from 'src/services/auth-guard-service.service';
 import { CreatenoteComponent } from './components/createnote/createnote.component';
-import { IconsComponent } from './components/icons/icons.component';
+// import { IconsComponent } from './components/icons/icons.component';
 import { LabelComponent } from './components/label/label.component';
-import { EditlableComponent } from './components/editlable/editlable.component';
+// import { EditlableComponent } from './components/editlable/editlable.component';
 import { ArchiveComponent } from './components/archive/archive.component';
 import { TrashComponent } from './components/trash/trash.component';
 

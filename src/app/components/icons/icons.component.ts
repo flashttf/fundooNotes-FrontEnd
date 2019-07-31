@@ -168,7 +168,7 @@ datePicker(){
           this.dataService.changeMessage("Label added to note");
           this.snackbar.open(response.statusMessage,"close",{duration:2500});
         }else{
-          this.snackbar.open(response.statusMessage,"close",{duration:2500});
+          // this.snackbar.open(response.statusMessage,"close",{duration:2500});
         }
       }
     )

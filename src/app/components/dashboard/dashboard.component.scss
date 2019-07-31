@@ -1,5 +1,9 @@
 
-
+.mainNavbar{
+  position: fixed;
+  z-index:999;
+  top: 0px;
+}
 
  .notes .sidenav{
   width: 300px;
@@ -27,13 +31,14 @@ mat-sidenav{
 }
 
 .content{
- background-color: white;
+//  background-color: white;
  overflow: hidden;
 }
 
 .sidenavbar{
  height: 500px;
  overflow: hidden;
+ margin-top: 50px;
 }
 
 // .profileButton{
